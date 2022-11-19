@@ -3,6 +3,7 @@ package com.network.shopmanager.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.network.shopmanager.databinding.ActivityMainBinding
+import com.network.shopmanager.databinding.FragmentSignInBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding

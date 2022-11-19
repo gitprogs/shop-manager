@@ -2,7 +2,7 @@ package com.network.shopmanager.data.models
 
 data class Seller(
     var id: String = "",
-    var deviceId: String = "",
+    var device: String = "",
     var shopId: String = "",
     var login: String = "",
     var password: String = "",
