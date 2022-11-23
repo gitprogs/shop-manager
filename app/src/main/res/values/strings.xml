@@ -12,4 +12,12 @@
     <string name="tel1">1-tel raqam</string>
     <string name="tel2">2-tel raqam (ixtiyoriy)</string>
     <string name="parolni_takrorlang">Parolni takrorlang</string>
+    <string name="home">Bosh sahifa</string>
+    <string name="suppliers">Tovar beruvchilar</string>
+    <string name="taxis">Taksilar</string>
+    <string name="info">Info</string>
+    <string name="bank">Bank</string>
+    <string name="settings">Sozlamalar</string>
+    <string name="exit">Chiqish</string>
+    <string name="administraciya">Administraciya</string>
 </resources>

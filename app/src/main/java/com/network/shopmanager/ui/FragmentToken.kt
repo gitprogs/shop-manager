@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.network.shopmanager.R
 import com.network.shopmanager.databinding.FragmentTokenBinding
 import com.network.shopmanager.utils.MyProgressBar
-import com.network.shopmanager.utils.Objects.APP_SIGN_IN
+import com.network.shopmanager.utils.Objects.APP
 import com.network.shopmanager.utils.Objects.NETWORK
 import com.network.shopmanager.utils.Status
 import com.network.shopmanager.utils.toToast
@@ -35,9 +35,9 @@ class FragmentToken : FragmentBase() {
                 return@setOnClickListener
             } else {
                 if (NETWORK.isNetworkConnected()) {
-                    APP_SIGN_IN.vm.fetchToken()
+                    APP.vm.fetchToken()
 
-                    APP_SIGN_IN.vm.resultToken.observe(viewLifecycleOwner) {
+                    APP.vm.resultToken.observe(viewLifecycleOwner) {
                         val message = it.message
                         if (it.status == Status.LOADING) {
                             progress.startProgress()

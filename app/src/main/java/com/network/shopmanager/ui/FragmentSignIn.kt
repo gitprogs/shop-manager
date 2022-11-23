@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.network.shopmanager.R
 import com.network.shopmanager.databinding.FragmentSignInBinding
 import com.network.shopmanager.utils.*
-import com.network.shopmanager.utils.Objects.APP_SIGN_IN
+import com.network.shopmanager.utils.Objects.APP
 import kotlinx.coroutines.DelicateCoroutinesApi
 
 @DelicateCoroutinesApi
@@ -31,7 +31,7 @@ class FragmentSignIn : FragmentBase() {
     override fun onStart() {
         super.onStart()
         val progressBar = MyProgressBar()
-        with(APP_SIGN_IN) {
+        with(APP) {
             vm.resultSignIn.observe(viewLifecycleOwner) {
                 val message = it.message
                 if (it.status == Status.LOADING) {
@@ -61,7 +61,7 @@ class FragmentSignIn : FragmentBase() {
                 } else {
                     binding.etLogin.setText("")
                     binding.etPassword.setText("")
-                    APP_SIGN_IN.vm.signIn(login.validateEmail(), password)
+                    APP.vm.signIn(login.validateEmail(), password)
                 }
             }
         }

@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import com.network.shopmanager.utils.Objects.APP_SIGN_IN
+import com.network.shopmanager.utils.Objects.APP
 import kotlinx.coroutines.DelicateCoroutinesApi
 import java.text.SimpleDateFormat
 import java.util.*
@@ -13,16 +13,16 @@ fun String.validateEmail() = if (this.contains("@")) this else this + "@gmail.co
 
 @DelicateCoroutinesApi
 fun String.toToast() {
-    Toast.makeText(APP_SIGN_IN, this, Toast.LENGTH_SHORT).show()
+    Toast.makeText(APP, this, Toast.LENGTH_SHORT).show()
 }
 
 
 @DelicateCoroutinesApi
 fun hideKeyBoard() {
-    val view = APP_SIGN_IN.currentFocus
+    val view = APP.currentFocus
     if (view != null) {
         val inm: InputMethodManager =
-            APP_SIGN_IN.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            APP.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

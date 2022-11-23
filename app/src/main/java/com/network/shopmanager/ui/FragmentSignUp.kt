@@ -10,7 +10,7 @@ import com.network.shopmanager.R
 import com.network.shopmanager.data.models.Seller
 import com.network.shopmanager.databinding.FragmentSignUpBinding
 import com.network.shopmanager.utils.*
-import com.network.shopmanager.utils.Objects.APP_SIGN_IN
+import com.network.shopmanager.utils.Objects.APP
 import com.network.shopmanager.utils.Objects.NETWORK
 import kotlinx.coroutines.DelicateCoroutinesApi
 import java.util.*
@@ -60,7 +60,7 @@ class FragmentSignUp : FragmentBase() {
                 return@setOnClickListener
             } else {
                 val progressBar = MyProgressBar()
-                with(APP_SIGN_IN) {
+                with(APP) {
                     vm.resultSignUp.observe(viewLifecycleOwner) {
                         val message = it.message
                         if (it.status == Status.LOADING) {
@@ -92,7 +92,7 @@ class FragmentSignUp : FragmentBase() {
 
 
                 if (NETWORK.isNetworkConnected()) {
-                    APP_SIGN_IN.vm.createSeller(seller)
+                    APP.vm.createSeller(seller)
                 } else {
                     noInternetToast()
                 }

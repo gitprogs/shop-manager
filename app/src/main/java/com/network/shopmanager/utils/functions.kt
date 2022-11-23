@@ -1,22 +1,41 @@
 @file:OptIn(DelicateCoroutinesApi::class)
 
 package com.network.shopmanager.utils
+
 import android.annotation.SuppressLint
+import android.content.res.Configuration
 import android.os.CountDownTimer
 import android.provider.Settings
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import com.google.android.material.snackbar.Snackbar
-import com.network.shopmanager.utils.Objects.APP_SIGN_IN
+import com.network.shopmanager.utils.Objects.APP
 import kotlinx.coroutines.DelicateCoroutinesApi
 
 @SuppressLint("HardwareIds")
-fun getDeviceId() = Settings.Secure.getString(APP_SIGN_IN.contentResolver, Settings.Secure.ANDROID_ID)
+fun getDeviceId() =
+    Settings.Secure.getString(APP.contentResolver, Settings.Secure.ANDROID_ID)
 
 @DelicateCoroutinesApi
 fun noInternetToast() {
     "Internet yo'q".toToast()
+}
+
+
+fun setNightMode(mode: Boolean) {
+    if (mode) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        APP.delegate.applyDayNight()
+    } else {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        APP.delegate.applyDayNight()
+    }
+}
+ fun isDarkModeOn(): Boolean {
+    val currentNightMode = APP.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+    return currentNightMode == Configuration.UI_MODE_NIGHT_YES
 }
 
 fun waitMoment(i: Long = 2000L, function: () -> Unit) {

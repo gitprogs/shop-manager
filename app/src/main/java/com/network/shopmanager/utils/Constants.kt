@@ -13,4 +13,5 @@ object Constants {
     // for local database
 
     // for shared preferences
+    const val KEY_NIGHT_MODE="key_night_mode"
 }
