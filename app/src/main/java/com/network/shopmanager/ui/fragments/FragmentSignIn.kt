@@ -1,4 +1,4 @@
-package com.network.shopmanager.ui
+package com.network.shopmanager.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -43,7 +43,7 @@ class FragmentSignIn : FragmentBase() {
                 } else if (it.status == Status.SUCCESS) {
                     message.toToast()
                     progressBar.stopBar()
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, com.network.shopmanager.ui.activities.MainActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     finish()
                     startActivity(intent)

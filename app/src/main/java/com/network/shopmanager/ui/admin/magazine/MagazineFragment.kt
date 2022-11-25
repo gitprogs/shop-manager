@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.network.shopmanager.data.models.Shop
 import com.network.shopmanager.databinding.FragmentMagazineBinding
-import com.network.shopmanager.ui.FragmentBase
+import com.network.shopmanager.ui.fragments.FragmentBase
 import com.network.shopmanager.utils.Objects
 import com.network.shopmanager.utils.Objects.APP
 import com.network.shopmanager.utils.Status

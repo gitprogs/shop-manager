@@ -1,11 +1,8 @@
-package com.network.shopmanager.ui
+package com.network.shopmanager.ui.activities
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import com.network.shopmanager.databinding.ActivitySignInBinding
-import com.network.shopmanager.utils.NetworkHelper
 import com.network.shopmanager.utils.Objects.APP
-import com.network.shopmanager.utils.Objects.NETWORK
 import kotlinx.coroutines.DelicateCoroutinesApi
 
 @DelicateCoroutinesApi
