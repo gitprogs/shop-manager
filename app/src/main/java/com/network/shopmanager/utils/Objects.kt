@@ -21,4 +21,7 @@ object Objects {
     // firebase
     val AUTH: FirebaseAuth = Firebase.auth
     val PREF by lazy { Pref(APP) }
+
+
 }
+

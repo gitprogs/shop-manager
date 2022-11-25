@@ -12,5 +12,6 @@ open class FragmentBase : Fragment() {
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onResume() {
         super.onResume()
+
     }
 }
