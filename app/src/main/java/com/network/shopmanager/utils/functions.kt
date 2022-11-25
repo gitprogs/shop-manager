@@ -4,15 +4,20 @@ package com.network.shopmanager.utils
 
 import android.annotation.SuppressLint
 import android.content.res.Configuration
+import android.content.res.Resources
 import android.os.CountDownTimer
 import android.provider.Settings
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import com.google.android.material.snackbar.Snackbar
 import com.network.shopmanager.utils.Objects.APP
 import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlin.math.roundToInt
+
+
+val Int.dp: Int
+    get() = (this * Resources.getSystem().displayMetrics.density).roundToInt()
 
 @SuppressLint("HardwareIds")
 fun getDeviceId() =
@@ -33,7 +38,8 @@ fun setNightMode(mode: Boolean) {
         APP.delegate.applyDayNight()
     }
 }
- fun isDarkModeOn(): Boolean {
+
+fun isDarkModeOn(): Boolean {
     val currentNightMode = APP.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
     return currentNightMode == Configuration.UI_MODE_NIGHT_YES
 }
@@ -51,18 +57,20 @@ fun waitMoment(i: Long = 2000L, function: () -> Unit) {
 }
 
 
-fun AppCompatActivity.checkSelfPermissionCompat(permission: String) =
-    ActivityCompat.checkSelfPermission(this, permission)
+@DelicateCoroutinesApi
+fun checkSelfPermissionCompat(permission: String) =
+    ActivityCompat.checkSelfPermission(APP, permission)
 
-fun AppCompatActivity.shouldShowRequestPermissionRationaleCompat(permission: String) =
-    ActivityCompat.shouldShowRequestPermissionRationale(this, permission)
+fun shouldShowRequestPermissionRationaleCompat(permission: String) =
+    ActivityCompat.shouldShowRequestPermissionRationale(APP, permission)
 
-fun AppCompatActivity.requestPermissionsCompat(
+fun requestPermissionsCompat(
     permissionsArray: Array<String>,
     requestCode: Int
 ) {
-    ActivityCompat.requestPermissions(this, permissionsArray, requestCode)
+    ActivityCompat.requestPermissions(APP, permissionsArray, requestCode)
 }
+
 
 fun View.showSnackbar(msgId: Int, length: Int) {
     showSnackbar(context.getString(msgId), length)

@@ -1,21 +1,28 @@
 package com.network.shopmanager.ui
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.util.Log
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.android.gms.location.LocationServices
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.gson.Gson
+import com.network.shopmanager.data.models.Geo
 import com.network.shopmanager.data.models.Seller
 import com.network.shopmanager.data.models.Token
 import com.network.shopmanager.utils.Constants.SELLERS
 import com.network.shopmanager.utils.Constants.TOKEN
+import com.network.shopmanager.utils.Objects
 import com.network.shopmanager.utils.Objects.AUTH
 import com.network.shopmanager.utils.Resource
 import com.network.shopmanager.utils.Status
 import com.network.shopmanager.utils.waitMoment
+import kotlinx.coroutines.DelicateCoroutinesApi
 import java.util.*
 
 const val TAG = "MainViewModel"
@@ -148,4 +155,37 @@ class MainViewModel : ViewModel() {
                 _resultToken.value = Resource(status = Status.ERROR, message = "Token noto'g'ri")
             }
     }
+
+    // get location
+    private val _resultLocation = MutableLiveData<Resource<Geo>>()
+    val resultLocation: LiveData<Resource<Geo>> = _resultLocation
+
+    @DelicateCoroutinesApi
+    fun getCurrentLocation() {
+        _resultLocation.value = Resource(status = Status.LOADING)
+        val mFusedLocationClient = LocationServices.getFusedLocationProviderClient(Objects.APP)
+        if (ContextCompat.checkSelfPermission(
+                Objects.APP,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            try {
+                mFusedLocationClient.lastLocation.addOnCompleteListener { task ->
+                    if (task.isSuccessful && task.result != null) {
+                        val mLocation = task.result
+                        val geo = Geo(
+                            latitude = mLocation.latitude,
+                            longitude = mLocation.longitude
+                        )
+                        _resultLocation.value = Resource(status = Status.SUCCESS, data = geo)
+                    }
+                }
+            } catch (e: Exception) {
+                _resultLocation.value = Resource(status = Status.ERROR)
+
+                e.printStackTrace()
+            }
+        }
+    }
+
 }

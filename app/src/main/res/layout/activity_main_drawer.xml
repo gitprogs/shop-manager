@@ -22,62 +22,6 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/main_drawer">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/purple_700"
-            android:orientation="vertical"
-            android:paddingHorizontal="@dimen/dp15"
-            android:paddingTop="@dimen/dp25"
-            android:paddingBottom="@dimen/dp10">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="@dimen/dp60"
-                    android:layout_height="@dimen/dp60"
-                    app:cardCornerRadius="@dimen/dp20">
-
-                    <ImageView
-                        android:id="@+id/iv_avatar"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/shop" />
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="1$=11.230"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/iv_night_mode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_moon" />
-
-            </LinearLayout>
-
-
-            <TextView
-                android:id="@+id/tv_user_header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp10"
-                android:text="Umid (1-do'kon)\n+99891123456\n+99897123000"
-                android:textColor="@color/white_back" />
-
-        </LinearLayout>
-
         <LinearLayout
             android:id="@+id/l_token"
             android:layout_width="match_parent"

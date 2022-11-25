@@ -1,14 +1,11 @@
 package com.network.shopmanager.utils
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.network.shopmanager.data.sharedpref.Pref
-import com.network.shopmanager.ui.BaseActivity
-import com.network.shopmanager.ui.MainActivity
-import com.network.shopmanager.ui.SignInActivity
+import com.network.shopmanager.ui.activities.BaseActivity
 import kotlinx.coroutines.DelicateCoroutinesApi
 
 object Objects {

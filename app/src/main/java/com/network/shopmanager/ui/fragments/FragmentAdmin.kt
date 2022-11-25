@@ -1,20 +1,18 @@
-package com.network.shopmanager.ui
+package com.network.shopmanager.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.findNavController
+import com.network.shopmanager.R
 import com.network.shopmanager.databinding.FragmentAdminBinding
-import com.network.shopmanager.databinding.FragmentHomeBinding
-import com.network.shopmanager.utils.Objects.APP
 import kotlinx.coroutines.DelicateCoroutinesApi
 
 @DelicateCoroutinesApi
-class FragmentHome : FragmentBase() {
+class FragmentAdmin : FragmentBase() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentAdminBinding? = null
 
     private val binding get() = _binding!!
 
@@ -23,15 +21,17 @@ class FragmentHome : FragmentBase() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentAdminBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onStart() {
         super.onStart()
-
-        binding.ivToggle.setOnClickListener {
-            (APP as MainActivity).drawer.openDrawer(GravityCompat.START)
+        binding.cardShops.setOnClickListener {
+            findNavController().navigate(R.id.action_fragment_admin_to_fragmentShops)
+        }
+        binding.ivBackArrow.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 

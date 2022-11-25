@@ -1,9 +1,11 @@
-package com.network.shopmanager.ui
+package com.network.shopmanager.ui.activities
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -27,6 +29,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private var tvInfo: TextView? = null
     private var tvBank: TextView? = null
     private var tvAdmin: TextView? = null
+
+    private var ivAvatar: ImageView? = null
+    private var ivNightMode: ImageView? = null
+    private var tvKurs: TextView? = null
+    private var tvUserHeader: TextView? = null
+    private var userInfo = ""
+
     private lateinit var navController: NavController
 
     @SuppressLint("CutPasteId")
@@ -40,32 +49,36 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         drawer = binding.drawerLayout
         binding.navView.setNavigationItemSelectedListener(this)
 
-        tvHome =
-            binding.navView.menu.findItem(R.id.fragment_home).actionView.findViewById(R.id.counter) as TextView
-        tvSupplier =
-            binding.navView.menu.findItem(R.id.fragment_suppliers).actionView.findViewById(R.id.counter) as TextView
-        tvTaxi =
-            binding.navView.menu.findItem(R.id.fragment_taxis).actionView.findViewById(R.id.counter) as TextView
-        tvInfo =
-            binding.navView.menu.findItem(R.id.fragment_info).actionView.findViewById(R.id.counter) as TextView
-        tvBank =
-            binding.navView.menu.findItem(R.id.fragment_bank).actionView.findViewById(R.id.counter) as TextView
-        tvAdmin =
-            binding.navView.menu.findItem(R.id.fragment_admin).actionView.findViewById(R.id.counter) as TextView
-
+        initHeader()
         initMenuCounters()
         setClickListeners()
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun initHeader() {
+        val header = binding.navView.getHeaderView(0)
+        ivAvatar = header.findViewById(R.id.iv_avatar)
+        ivNightMode = header.findViewById(R.id.iv_night_mode)
+        tvKurs = header.findViewById(R.id.tv_kurs)
+        tvUserHeader = header.findViewById(R.id.tv_user_header)
+
         if (isDarkModeOn()) {
-            binding.ivNightMode.setImageResource(R.drawable.ic_sun)
+            ivNightMode?.setImageResource(R.drawable.ic_sun)
         } else {
-            binding.ivNightMode.setImageResource(R.drawable.ic_moon)
+            ivNightMode?.setImageResource(R.drawable.ic_moon)
         }
+        ivAvatar?.setImageResource(R.drawable.shop)
+        tvKurs?.text = "1$=11.235"
+        userInfo = "Umid (1-do'kon)\n+99891123456\n+9989712300"
+        tvUserHeader?.text = userInfo
     }
 
     private fun setClickListeners() {
-        binding.ivAvatar.setOnClickListener { }
-        binding.ivNightMode.setOnClickListener {
-            val mode=!isDarkModeOn()
+        ivAvatar?.setOnClickListener {
+
+        }
+        ivNightMode?.setOnClickListener {
+            val mode = !isDarkModeOn()
             Objects.PREF.setBoolean(Constants.KEY_NIGHT_MODE, mode)
             setNightMode(mode)
         }
@@ -93,6 +106,18 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     @SuppressLint("SetTextI18n")
     fun initMenuCounters() {
+        tvHome =
+            binding.navView.menu.findItem(R.id.fragment_home).actionView.findViewById(R.id.counter) as TextView
+        tvSupplier =
+            binding.navView.menu.findItem(R.id.fragment_suppliers).actionView.findViewById(R.id.counter) as TextView
+        tvTaxi =
+            binding.navView.menu.findItem(R.id.fragment_taxis).actionView.findViewById(R.id.counter) as TextView
+        tvInfo =
+            binding.navView.menu.findItem(R.id.fragment_info).actionView.findViewById(R.id.counter) as TextView
+        tvBank =
+            binding.navView.menu.findItem(R.id.fragment_bank).actionView.findViewById(R.id.counter) as TextView
+        tvAdmin =
+            binding.navView.menu.findItem(R.id.fragment_admin).actionView.findViewById(R.id.counter) as TextView
         tvHome?.text = "+9"
         tvSupplier?.text = "+1"
         tvTaxi?.text = "+3345"
@@ -129,16 +154,27 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
             }
             R.id.sign_out -> {
-
+                ShowAlertDialog(
+                    title = "Diqqat !",
+                    message = "Akkauntdan chiqib ketishga ishonchingiz komilmi ?"
+                ) {
+                    if (it) {
+                        vm.signOut()
+                        val intent = Intent(this, SignInActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        finish()
+                        startActivity(intent)
+                    }
+                }
             }
         }
-        binding.drawerLayout.closeDrawer(GravityCompat.START)
+        drawer.closeDrawer(GravityCompat.START)
         return true
     }
 
     override fun onBackPressed() {
-        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }

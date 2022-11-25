@@ -1,4 +1,4 @@
-package com.network.shopmanager.ui
+package com.network.shopmanager.ui.fragments
 
 import android.os.Bundle
 import android.os.CountDownTimer

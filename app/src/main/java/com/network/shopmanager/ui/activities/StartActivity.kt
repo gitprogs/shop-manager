@@ -1,4 +1,4 @@
-package com.network.shopmanager.ui
+package com.network.shopmanager.ui.activities
 
 import android.content.Intent
 import android.os.Bundle

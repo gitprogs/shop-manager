@@ -6,10 +6,18 @@
 
     <fragment
         android:id="@+id/fragment_admin"
-        android:name="com.network.shopmanager.ui.FragmentAdmin"
-        android:label="FragmentAdmin" />
+        android:name="com.network.shopmanager.ui.fragments.FragmentAdmin"
+        android:label="FragmentAdmin" >
+        <action
+            android:id="@+id/action_fragment_admin_to_fragmentShops"
+            app:destination="@id/fragmentShops" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_home"
-        android:name="com.network.shopmanager.ui.FragmentHome"
+        android:name="com.network.shopmanager.ui.fragments.FragmentHome"
         android:label="FragmentHome" />
+    <fragment
+        android:id="@+id/fragmentShops"
+        android:name="com.network.shopmanager.ui.fragments.FragmentShops"
+        android:label="FragmentShops" />
 </navigation>

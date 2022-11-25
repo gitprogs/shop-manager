@@ -1,7 +1,8 @@
-package com.network.shopmanager.ui
+package com.network.shopmanager.ui.activities
 
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.network.shopmanager.ui.MainViewModel
 import com.network.shopmanager.utils.Constants.KEY_NIGHT_MODE
 import com.network.shopmanager.utils.Objects.PREF
 import com.network.shopmanager.utils.setNightMode

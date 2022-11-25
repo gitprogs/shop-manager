@@ -6,14 +6,14 @@
 
     <fragment
         android:id="@+id/fragmentSignIn"
-        android:name="com.network.shopmanager.ui.FragmentSignIn"
+        android:name="com.network.shopmanager.ui.fragments.FragmentSignIn"
         android:label="FragmentSignIn" />
     <fragment
         android:id="@+id/fragmentToken"
-        android:name="com.network.shopmanager.ui.FragmentToken"
+        android:name="com.network.shopmanager.ui.fragments.FragmentToken"
         android:label="FragmentToken" />
     <fragment
         android:id="@+id/fragmentSignUp"
-        android:name="com.network.shopmanager.ui.FragmentSignUp"
+        android:name="com.network.shopmanager.ui.fragments.FragmentSignUp"
         android:label="FragmentSignUp" />
 </navigation>
