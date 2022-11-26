@@ -67,17 +67,18 @@
 
             <LinearLayout
                 android:id="@+id/add_location"
-                android:foreground="?android:attr/selectableItemBackground"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp10"
-                android:background="#B700E676">
+                android:background="#B700E676"
+                android:foreground="?android:attr/selectableItemBackground">
 
                 <ImageView
                     android:layout_width="@dimen/dp50"
                     android:layout_height="@dimen/dp50"
                     android:padding="@dimen/dp5"
-                    android:src="@drawable/ic_baseline_add_location_24" />
+                    android:src="@drawable/ic_baseline_add_location_24"
+                    app:tint="@color/red" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -85,6 +86,7 @@
                     android:layout_gravity="center"
                     android:text="Do'kon lokatsiayni qo'shish uchun bosing"
                     android:textSize="@dimen/dp15" />
+
             </LinearLayout>
 
 

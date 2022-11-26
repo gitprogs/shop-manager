@@ -13,15 +13,10 @@ import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import com.google.android.material.snackbar.Snackbar
-import com.network.shopmanager.databinding.DialogTakePhotoBinding
+
 import com.network.shopmanager.utils.Objects.APP
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlin.math.roundToInt
-
-
-// take photo
-
-
 
 val Int.dp: Int
     get() = (this * Resources.getSystem().displayMetrics.density).roundToInt()
@@ -63,22 +58,6 @@ fun waitMoment(i: Long = 2000L, function: () -> Unit) {
     timer.start()
 }
 
-
-@DelicateCoroutinesApi
-fun checkSelfPermissionCompat(permission: String) =
-    ActivityCompat.checkSelfPermission(APP, permission)
-
-fun shouldShowRequestPermissionRationaleCompat(permission: String) =
-    ActivityCompat.shouldShowRequestPermissionRationale(APP, permission)
-
-fun requestPermissionsCompat(
-    permissionsArray: Array<String>,
-    requestCode: Int
-) {
-    ActivityCompat.requestPermissions(APP, permissionsArray, requestCode)
-}
-
-
 fun View.showSnackbar(msgId: Int, length: Int) {
     showSnackbar(context.getString(msgId), length)
 }
@@ -109,3 +88,4 @@ fun View.showSnackbar(
         }.show()
     }
 }
+

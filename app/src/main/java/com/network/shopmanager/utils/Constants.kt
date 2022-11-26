@@ -9,7 +9,9 @@ object Constants {
     const val SUPPLIERS = "suppliers"
     const val TAXIS = "taxis"
     const val TOKEN = "token"
-    lateinit var SELLER_ID: String
+
+    // for firebase storage
+    const val IMAGES = "images"
 
     // for local database
 

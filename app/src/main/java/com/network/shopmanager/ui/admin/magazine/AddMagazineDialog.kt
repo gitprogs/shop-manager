@@ -18,7 +18,7 @@ class AddMagazineDialog : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
-        binding = AddMagazineDialogBinding.inflate(LayoutInflater.from(context))
+        binding = AddMagazineDialogBinding.inflate(layoutInflater)
 
         val builder = AlertDialog.Builder(requireContext())
         builder.setView(binding.root)

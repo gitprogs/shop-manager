@@ -2,16 +2,20 @@ package com.network.shopmanager.ui.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.google.android.material.navigation.NavigationView
+
 import com.network.shopmanager.R
 import com.network.shopmanager.databinding.ActivityMainDrawerBinding
 import com.network.shopmanager.utils.*
@@ -52,6 +56,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         initHeader()
         initMenuCounters()
         setClickListeners()
+
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -165,7 +171,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     if (it) {
                         vm.signOut()
                         val intent = Intent(this, SignInActivity::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        intent.flags =
+                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         finish()
                         startActivity(intent)
                     }

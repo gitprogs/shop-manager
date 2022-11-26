@@ -1,38 +1,36 @@
 package com.network.shopmanager.ui.fragments
 
-import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.network.shopmanager.databinding.DialogAddEditShopBinding
+import com.network.shopmanager.databinding.DialogTakePhotoBinding
 import com.network.shopmanager.databinding.FragmentShopsBinding
 import com.network.shopmanager.utils.Objects.APP
-import com.network.shopmanager.utils.toToast
 import kotlinx.coroutines.DelicateCoroutinesApi
 
 @DelicateCoroutinesApi
 class FragmentShops : FragmentBase() {
-    private val REQUEST_CODE_LOCATION = 1212
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var _binding: FragmentShopsBinding? = null
     private val binding get() = _binding!!
-    private var view: DialogAddEditShopBinding? = null
+    private var viewAddEditShop: DialogAddEditShopBinding? = null
+    private var viewAddImage: DialogTakePhotoBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -62,73 +60,60 @@ class FragmentShops : FragmentBase() {
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             buildAlertMessageNoGps()
         } else {
-            view = DialogAddEditShopBinding.inflate(layoutInflater)
-            val dialog = AlertDialog.Builder(requireContext()).setView(view?.root)
+            viewAddEditShop = DialogAddEditShopBinding.inflate(layoutInflater)
+            val dialog = AlertDialog.Builder(requireContext()).setView(viewAddEditShop?.root)
             dialog.setCancelable(true)
             val alert = dialog.create()
             alert.show()
-            view?.etGeo?.setOnClickListener {
-                if (ContextCompat.checkSelfPermission(
-                        APP,
-                        ACCESS_FINE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    if (ActivityCompat.shouldShowRequestPermissionRationale(
-                            APP,
-                            ACCESS_FINE_LOCATION
-                        )
-                    ) {
-                        ActivityCompat.requestPermissions(
-                            APP,
-                            arrayOf(ACCESS_FINE_LOCATION), REQUEST_CODE_LOCATION
-                        )
-                    } else {
-                        ActivityCompat.requestPermissions(
-                            APP,
-                            arrayOf(ACCESS_FINE_LOCATION), REQUEST_CODE_LOCATION
-                        )
+
+            viewAddEditShop?.ivShop?.setOnClickListener {
+                viewAddImage = DialogTakePhotoBinding.inflate(layoutInflater)
+                val dialogTakeImage =
+                    AlertDialog.Builder(requireContext()).setView(viewAddImage?.root)
+                dialogTakeImage.setCancelable(true)
+                val alertImage = dialogTakeImage.create()
+                alertImage.show()
+                alertImage.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                viewAddImage?.tvCancel?.setOnClickListener {
+                    alertImage.dismiss()
+                }
+                viewAddImage?.camera?.setOnClickListener {
+                    alertImage.dismiss()
+                    APP.requestPermissions(Manifest.permission.CAMERA) {
+                        loadImageFromCamera(viewAddEditShop?.ivShop)
                     }
-                } else {
+                }
+                viewAddImage?.gallery?.setOnClickListener {
+                    alertImage.dismiss()
+                    APP.requestPermissions(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ) {
+                        loadImageFromGallery(viewAddEditShop?.ivShop)
+                    }
+                }
+
+            }
+            viewAddEditShop?.etGeo?.setOnClickListener {
+
+                APP.requestPermissions(
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) {
                     APP.vm.getCurrentLocation()
                     APP.vm.resultLocation.observe(viewLifecycleOwner) {
                         it.data?.let {
-                            view?.etGeo?.setText("kenglik: ${it?.latitude}\nuzunlik: ${it?.longitude}")
+                            viewAddEditShop?.etGeo?.setText("kenglik: ${it?.latitude}\nuzunlik: ${it?.longitude}")
                         }
                     }
-
                 }
             }
-            view?.btnConfirm?.setOnClickListener {
+            viewAddEditShop?.btnConfirm?.setOnClickListener {
                 alert.dismiss()
             }
         }
     }
 
-    @SuppressLint("SetTextI18n")
-    override fun onRequestPermissionsResult(
-        requestCode: Int, permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        when (requestCode) {
-            REQUEST_CODE_LOCATION -> {
-                if (grantResults.isNotEmpty() && grantResults[0] ==
-                    PackageManager.PERMISSION_GRANTED
-                ) {
-                    if ((ContextCompat.checkSelfPermission(APP, ACCESS_FINE_LOCATION) ==
-                                PackageManager.PERMISSION_GRANTED)
-                    ) {
-                        Log.d("loc", "onRequestPermissionsResult")
-
-                        APP.vm.getCurrentLocation()
-
-                    }
-                } else {
-                    "Ruxsat rad etildi".toToast()
-                }
-                return
-            }
-        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
