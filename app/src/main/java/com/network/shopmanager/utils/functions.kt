@@ -2,7 +2,9 @@
 
 package com.network.shopmanager.utils
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.os.CountDownTimer
@@ -11,9 +13,14 @@ import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import com.google.android.material.snackbar.Snackbar
+import com.network.shopmanager.databinding.DialogTakePhotoBinding
 import com.network.shopmanager.utils.Objects.APP
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlin.math.roundToInt
+
+
+// take photo
+
 
 
 val Int.dp: Int
