@@ -14,8 +14,11 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.gson.Gson
 import com.network.shopmanager.data.models.Geo
 import com.network.shopmanager.data.models.Seller
+import com.network.shopmanager.data.models.Shop
 import com.network.shopmanager.data.models.Token
+import com.network.shopmanager.utils.Constants
 import com.network.shopmanager.utils.Constants.SELLERS
+import com.network.shopmanager.utils.Constants.SHOPS
 import com.network.shopmanager.utils.Constants.TOKEN
 import com.network.shopmanager.utils.Objects
 import com.network.shopmanager.utils.Objects.AUTH
@@ -40,6 +43,9 @@ class MainViewModel : ViewModel() {
     private val _resultSignUp = MutableLiveData<Resource<Seller>>()
     val resultSignUp: LiveData<Resource<Seller>> = _resultSignUp
 
+    private val _addMagazine = MutableLiveData<Resource<Shop>>()
+    val addMagazine: LiveData<Resource<Shop>> = _addMagazine
+
     fun signOut() {
 //        DB_LOCAL.daoGroup().deleteAdminGroups(AUTH.uid ?: "")
 //        DB_LOCAL.daoUser().deleteUsersByAdminId(AUTH.uid ?: "")
@@ -59,7 +65,6 @@ class MainViewModel : ViewModel() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithEmail:success")
-                    val user = AUTH.currentUser
                     _resultSignIn.value = Resource(
                         status = Status.SUCCESS,
                         message = "Muvaffaqiyatli kirdingiz!"
@@ -188,4 +193,23 @@ class MainViewModel : ViewModel() {
         }
     }
 
+
+
+    fun addMagazine(magazine: Shop) {
+        DB_FIRESTORE.collection(SHOPS).document(magazine.id)
+            .set(magazine)
+            .addOnSuccessListener {
+                _addMagazine.value = Resource(
+                    status = Status.SUCCESS,
+                    message = " Do'kon muvaffaqaiyatli qo'shildi"
+                )
+            }
+            .addOnFailureListener {
+                _addMagazine.value = Resource(
+                    status = Status.ERROR,
+                    message = "Xatolik"
+                )
+                it.printStackTrace()
+            }
+    }
 }

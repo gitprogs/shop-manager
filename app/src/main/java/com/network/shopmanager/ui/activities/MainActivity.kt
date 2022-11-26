@@ -86,18 +86,23 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             vm.fetchToken()
             vm.resultToken.observe(this) {
                 val message = it.message
-                if (it.status == Status.LOADING) {
-                    binding.progressToken.visibility = View.VISIBLE
-                } else if (it.status == Status.ERROR) {
-                    binding.progressToken.visibility = View.GONE
-                    message.toToast()
-                } else if (it.status == Status.SUCCESS) {
-                    binding.progressToken.visibility = View.GONE
-                    binding.tvTokenHeader.visibility = View.VISIBLE
-                    binding.tvTokenHeader.text = it.data?.token
-                    waitMoment(60_000) {
-                        binding.tvTokenHeader.visibility = View.GONE
+                when (it.status) {
+                    Status.LOADING -> {
+                        binding.progressToken.visibility = View.VISIBLE
                     }
+                    Status.ERROR -> {
+                        binding.progressToken.visibility = View.GONE
+                        message.toToast()
+                    }
+                    Status.SUCCESS -> {
+                        binding.progressToken.visibility = View.GONE
+                        binding.tvTokenHeader.visibility = View.VISIBLE
+                        binding.tvTokenHeader.text = it.data?.token
+                        waitMoment(60_000) {
+                            binding.tvTokenHeader.visibility = View.GONE
+                        }
+                    }
+                    else -> {}
                 }
             }
         }
@@ -128,8 +133,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        when (id) {
+        when (item.itemId) {
             R.id.fragment_home -> {
                 navController.popBackStack(R.id.fragment_home, true)
                 navController.navigate(R.id.fragment_home)

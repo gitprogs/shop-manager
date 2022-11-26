@@ -1,4 +1,4 @@
-package com.network.shopmanager.ui.fragments
+package com.network.shopmanager.ui.admin
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.network.shopmanager.R
 import com.network.shopmanager.databinding.FragmentAdminBinding
+import com.network.shopmanager.ui.admin.magazine.MagazineFragment
+import com.network.shopmanager.ui.fragments.FragmentBase
 import kotlinx.coroutines.DelicateCoroutinesApi
 
 @DelicateCoroutinesApi
@@ -27,11 +29,15 @@ class FragmentAdmin : FragmentBase() {
 
     override fun onStart() {
         super.onStart()
-        binding.cardShops.setOnClickListener {
-            findNavController().navigate(R.id.action_fragment_admin_to_fragmentShops)
-        }
+
         binding.toolbar.ivBackArrow.setOnClickListener {
             findNavController().popBackStack()
+        }
+
+        binding.cardShops.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment, MagazineFragment())
+                .commit()
         }
     }
 
