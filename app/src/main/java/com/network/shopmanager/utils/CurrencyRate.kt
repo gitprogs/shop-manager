@@ -12,7 +12,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class CurrencyRate {
-    private val defaultRate = "11250"  // 27.11.2022
+    private val defaultRate = "11240"  // 27.11.2022
     fun getRate(function: (String) -> Unit) {
         if (NETWORK.isNetworkConnected()) {
             ApiClient.getRetrofit().create(ApiService::class.java)

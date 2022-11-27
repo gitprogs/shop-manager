@@ -6,7 +6,6 @@ import com.google.gson.Gson
 
 
 private const val SHARED_PREFS_NAME = "shared_prefs_shopmanager"
-private const val KEY_USER = "key_user"
 
 class Pref(context: Context) {
     private val gson = Gson()
