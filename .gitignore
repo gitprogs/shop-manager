@@ -13,3 +13,11 @@
 .externalNativeBuild
 .cxx
 local.properties
+/app/src/test/java/com/network/shopmanager/
+/app/src/androidTest/java/com/network/shopmanager/
+/app/build/generated/res/resValues/debug/
+/app/build/generated/res/google-services/debug/
+/app/build/generated/source/kaptKotlin/debug/
+/app/build/generated/ap_generated_sources/debug/out/
+/app/build/generated/source/buildConfig/debug/
+/app/build/generated/source/kapt/debug/
