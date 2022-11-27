@@ -18,6 +18,7 @@ import com.network.shopmanager.databinding.ActivityMainDrawerBinding
 import com.network.shopmanager.utils.*
 import com.network.shopmanager.utils.Objects.APP
 import com.network.shopmanager.utils.Objects.DB_LOCAL
+import com.network.shopmanager.utils.Objects.PREF
 import kotlinx.coroutines.DelicateCoroutinesApi
 
 
@@ -74,11 +75,26 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             ivNightMode?.setImageResource(R.drawable.ic_moon)
         }
         ivAvatar?.setImageResource(R.drawable.shop)
+        userInfo = "Umid (1-do'kon)\n+99891123456\n+9989712300"
+        tvUserHeader?.text = userInfo
+
         CurrencyRate().getRate { rate ->
             tvKurs?.text = "1$=$rate"
         }
-        userInfo = "Umid (1-do'kon)\n+99891123456\n+9989712300"
-        tvUserHeader?.text = userInfo
+        drawer.addDrawerListener(object : DrawerLayout.DrawerListener {
+            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}
+
+            override fun onDrawerOpened(drawerView: View) {
+                CurrencyRate().getRate { rate ->
+                    tvKurs?.text = "1$=$rate"
+                }
+            }
+
+            override fun onDrawerClosed(drawerView: View) {}
+
+            override fun onDrawerStateChanged(newState: Int) {}
+
+        })
     }
 
     private fun setClickListeners() {
@@ -87,7 +103,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
         ivNightMode?.setOnClickListener {
             val mode = !isDarkModeOn()
-            Objects.PREF.setBoolean(Constants.KEY_NIGHT_MODE, mode)
+            PREF.setBoolean(Constants.KEY_NIGHT_MODE, mode)
             setNightMode(mode)
         }
         binding.btnTokenHeader.setOnClickListener {

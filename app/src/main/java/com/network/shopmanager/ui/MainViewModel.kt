@@ -17,15 +17,13 @@ import com.network.shopmanager.data.models.Geo
 import com.network.shopmanager.data.models.Seller
 import com.network.shopmanager.data.models.Shop
 import com.network.shopmanager.data.models.Token
+import com.network.shopmanager.utils.*
 import com.network.shopmanager.utils.Constants.SELLERS
 import com.network.shopmanager.utils.Constants.SHOPS
 import com.network.shopmanager.utils.Constants.TOKEN
 import com.network.shopmanager.utils.Objects
 import com.network.shopmanager.utils.Objects.AUTH
 import com.network.shopmanager.utils.Objects.DB_LOCAL
-import com.network.shopmanager.utils.Resource
-import com.network.shopmanager.utils.Status
-import com.network.shopmanager.utils.waitMoment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
@@ -41,7 +39,7 @@ class MainViewModel : ViewModel() {
 
     fun getRealTimeUpdates() {
         getRealTimeUpdateShops()
-        // boshqa listenerslar
+        // boshqa observablelar va listenerlar
     }
 
     //  -----------   signIn  and  signUp  ---------------

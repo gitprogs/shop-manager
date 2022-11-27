@@ -1,8 +1,8 @@
 package com.network.shopmanager.utils
 
 import android.util.Log
-import com.crushtech.task_7_7_workmanager.retrofit.ApiClient
 import com.network.shopmanager.data.models.Currency
+import com.network.shopmanager.domain.retrofit.ApiClient
 import com.network.shopmanager.domain.retrofit.ApiService
 import com.network.shopmanager.utils.Constants.KEY_CURRENCY_RATE
 import com.network.shopmanager.utils.Objects.NETWORK
@@ -28,6 +28,7 @@ class CurrencyRate {
                             if (!listApi.isEmpty()) {
                                 val currency = listApi[0]
                                 val rate = currency.Rate.substringBeforeLast(".")
+                                Log.d("retrofit", "rate ${rate}")
                                 PREF.setString(KEY_CURRENCY_RATE, rate)
                                 function(rate)
                             }
