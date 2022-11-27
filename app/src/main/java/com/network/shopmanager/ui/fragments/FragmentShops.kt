@@ -95,7 +95,6 @@ class FragmentShops : FragmentBase() {
 
             }
             viewAddEditShop?.etGeo?.setOnClickListener {
-
                 APP.requestPermissions(
                     Manifest.permission.ACCESS_COARSE_LOCATION,
                     Manifest.permission.ACCESS_FINE_LOCATION

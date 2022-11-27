@@ -13,8 +13,10 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import com.network.shopmanager.data.room.MyRoom
 import com.network.shopmanager.ui.MainViewModel
 import com.network.shopmanager.utils.Constants.KEY_NIGHT_MODE
+import com.network.shopmanager.utils.Objects.DB_LOCAL
 import com.network.shopmanager.utils.Objects.PREF
 import com.network.shopmanager.utils.setNightMode
 import com.network.shopmanager.utils.toToast
@@ -53,7 +55,7 @@ open class BaseActivity : AppCompatActivity() {
                 }
             })
             .withErrorListener {
-                Log.d("per","withErrorListener : ${it.name}, ${it}")
+                Log.d("per", "withErrorListener : ${it.name}, ${it}")
                 "Xatolik".toToast()
             }
             .check()
@@ -89,6 +91,6 @@ open class BaseActivity : AppCompatActivity() {
                 Manifest.permission.ACCESS_FINE_LOCATION -> names = "geo lokaciya, $names"
             }
         }
-        return if(names.length>2) names.trim().substring(0, names.length - 2) else ""
+        return if (names.length > 2) names.trim().substring(0, names.length - 2) else ""
     }
 }

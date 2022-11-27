@@ -2,24 +2,22 @@ package com.network.shopmanager.ui.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.provider.Settings
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.google.android.material.navigation.NavigationView
-
 import com.network.shopmanager.R
+import com.network.shopmanager.data.room.MyRoom
 import com.network.shopmanager.databinding.ActivityMainDrawerBinding
 import com.network.shopmanager.utils.*
 import com.network.shopmanager.utils.Objects.APP
+import com.network.shopmanager.utils.Objects.DB_LOCAL
 import kotlinx.coroutines.DelicateCoroutinesApi
 
 
@@ -48,6 +46,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         binding = ActivityMainDrawerBinding.inflate(layoutInflater)
         setContentView(binding.root)
         APP = this
+        DB_LOCAL = MyRoom.getInstance(applicationContext)
+        vm.getRealTimeUpdates()
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         drawer = binding.drawerLayout
@@ -74,7 +74,9 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             ivNightMode?.setImageResource(R.drawable.ic_moon)
         }
         ivAvatar?.setImageResource(R.drawable.shop)
-        tvKurs?.text = "1$=11.235"
+        CurrencyRate().getRate { rate ->
+            tvKurs?.text = "1$=$rate"
+        }
         userInfo = "Umid (1-do'kon)\n+99891123456\n+9989712300"
         tvUserHeader?.text = userInfo
     }

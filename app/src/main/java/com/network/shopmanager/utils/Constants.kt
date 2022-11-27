@@ -17,6 +17,7 @@ object Constants {
 
     // for shared preferences
     const val KEY_NIGHT_MODE = "key_night_mode"
+    const val KEY_CURRENCY_RATE = "key_currency_rate"
 
 
 }

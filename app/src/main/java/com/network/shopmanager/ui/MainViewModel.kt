@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.location.LocationServices
+import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -16,15 +17,18 @@ import com.network.shopmanager.data.models.Geo
 import com.network.shopmanager.data.models.Seller
 import com.network.shopmanager.data.models.Shop
 import com.network.shopmanager.data.models.Token
-import com.network.shopmanager.utils.Constants
 import com.network.shopmanager.utils.Constants.SELLERS
 import com.network.shopmanager.utils.Constants.SHOPS
 import com.network.shopmanager.utils.Constants.TOKEN
 import com.network.shopmanager.utils.Objects
 import com.network.shopmanager.utils.Objects.AUTH
+import com.network.shopmanager.utils.Objects.DB_LOCAL
 import com.network.shopmanager.utils.Resource
 import com.network.shopmanager.utils.Status
 import com.network.shopmanager.utils.waitMoment
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.observers.DisposableSingleObserver
+import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.DelicateCoroutinesApi
 import java.util.*
 
@@ -34,6 +38,11 @@ class MainViewModel : ViewModel() {
     private val gson = Gson()
     private val DB_FIRESTORE = Firebase.firestore
     private val DB_FIREBASE_STORAGE = FirebaseStorage.getInstance()
+
+    fun getRealTimeUpdates() {
+        getRealTimeUpdateShops()
+        // boshqa listenerslar
+    }
 
     //  -----------   signIn  and  signUp  ---------------
 
@@ -194,7 +203,7 @@ class MainViewModel : ViewModel() {
     }
 
 
-
+    // shops
     fun addMagazine(magazine: Shop) {
         DB_FIRESTORE.collection(SHOPS).document(magazine.id)
             .set(magazine)
@@ -212,4 +221,80 @@ class MainViewModel : ViewModel() {
                 it.printStackTrace()
             }
     }
+
+    private fun getRealTimeUpdateShops() {
+        var lastUpdateTime = 0L
+        try {
+            lastUpdateTime = DB_LOCAL.daoShop().getShopsLastDate()
+        } catch (e: Exception) {
+
+        }
+
+        DB_FIRESTORE.collection(SHOPS)
+            .whereGreaterThanOrEqualTo("date", lastUpdateTime)
+            // .whereIn("date", groupIds)
+            .addSnapshotListener { snapshots, e ->
+                if (e != null) {
+                    return@addSnapshotListener
+                }
+                for (dc in snapshots!!.documentChanges) {
+                    when (dc.type) {
+                        DocumentChange.Type.ADDED -> {
+                            val shopRemote = dc.document.toObject(Shop::class.java)
+                            Log.d(TAG, "shopRemote :$shopRemote")
+                            DB_LOCAL.daoShop().addShop(shopRemote)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(object : DisposableSingleObserver<Long>() {
+                                    override fun onSuccess(t: Long) {
+                                        Log.d(TAG, "shopRemote ADDED :$shopRemote")
+                                    }
+
+                                    override fun onError(e: Throwable) {
+                                        e.printStackTrace()
+                                    }
+                                })
+                        }
+                        DocumentChange.Type.MODIFIED -> {
+                            val shopRemote = dc.document.toObject(Shop::class.java)
+                            DB_LOCAL.daoShop().updateShop(shopRemote)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(object : DisposableSingleObserver<Int>() {
+                                    override fun onSuccess(t: Int) {}
+                                    override fun onError(e: Throwable) {
+                                        e.printStackTrace()
+                                    }
+                                })
+                            Log.d(
+                                TAG,
+                                "shopRemote Type.MODIFIED :$shopRemote"
+                            )
+                        }
+                        DocumentChange.Type.REMOVED -> {
+                            val shopRemote = dc.document.toObject(Shop::class.java)
+                            DB_LOCAL.daoShop().deleteShop(shopRemote)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(object : DisposableSingleObserver<Int>() {
+                                    override fun onSuccess(t: Int) {}
+                                    override fun onError(e: Throwable) {
+                                        e.printStackTrace()
+                                    }
+                                })
+
+                            Log.d(
+                                TAG,
+                                "shopRemote Type.REMOVED :$shopRemote"
+                            )
+
+                        }
+                    }
+                }
+                Log.d(TAG, "getRealTimeUpdateShops")
+            }
+    }
+
 }
+
+

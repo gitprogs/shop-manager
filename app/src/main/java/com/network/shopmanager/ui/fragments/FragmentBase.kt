@@ -12,7 +12,6 @@ import androidx.core.content.FileProvider
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.network.shopmanager.BuildConfig
-import com.network.shopmanager.utils.Objects
 import com.network.shopmanager.utils.Objects.APP
 import kotlinx.coroutines.DelicateCoroutinesApi
 import java.io.ByteArrayOutputStream
