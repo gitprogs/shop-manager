@@ -21,7 +21,7 @@ interface DaoShop {
     @Delete
     fun deleteShop(shop: Shop): Single<Int>
 
-    @Query("select * from shops")
+    @Query("select * from shops order by date desc")
     fun getShops(): Flowable<List<Shop>>
 
     @Query("select date from shops order by date desc limit 1")

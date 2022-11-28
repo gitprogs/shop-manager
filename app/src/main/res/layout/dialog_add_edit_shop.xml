@@ -12,7 +12,7 @@
         android:gravity="center_horizontal"
         android:text="Do'kon qo'shish"
         android:textColor="@color/black"
-        android:textSize="@dimen/font24"
+        android:textSize="@dimen/font20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,8 +30,8 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="120dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="120dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="@dimen/dp10"
                 app:cardCornerRadius="@dimen/dp20"
@@ -77,7 +77,7 @@
                     android:id="@+id/et_shop_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:imeOptions="actionNext"
+                    android:imeOptions="actionDone"
                     android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>

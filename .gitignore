@@ -21,3 +21,6 @@ local.properties
 /app/build/generated/ap_generated_sources/debug/out/
 /app/build/generated/source/buildConfig/debug/
 /app/build/generated/source/kapt/debug/
+/.idea/
+/app/build/
+/app/build/generated/source/kapt/debug/com/network/shopmanager/data/room/

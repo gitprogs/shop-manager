@@ -17,13 +17,16 @@ import com.network.shopmanager.data.models.Geo
 import com.network.shopmanager.data.models.Seller
 import com.network.shopmanager.data.models.Shop
 import com.network.shopmanager.data.models.Token
-import com.network.shopmanager.utils.*
+import com.network.shopmanager.utils.Constants.IMAGES
 import com.network.shopmanager.utils.Constants.SELLERS
 import com.network.shopmanager.utils.Constants.SHOPS
 import com.network.shopmanager.utils.Constants.TOKEN
 import com.network.shopmanager.utils.Objects
 import com.network.shopmanager.utils.Objects.AUTH
 import com.network.shopmanager.utils.Objects.DB_LOCAL
+import com.network.shopmanager.utils.Resource
+import com.network.shopmanager.utils.Status
+import com.network.shopmanager.utils.waitMoment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
@@ -50,8 +53,6 @@ class MainViewModel : ViewModel() {
     private val _resultSignUp = MutableLiveData<Resource<Seller>>()
     val resultSignUp: LiveData<Resource<Seller>> = _resultSignUp
 
-    private val _addMagazine = MutableLiveData<Resource<Shop>>()
-    val addMagazine: LiveData<Resource<Shop>> = _addMagazine
 
     fun signOut() {
 //        DB_LOCAL.daoGroup().deleteAdminGroups(AUTH.uid ?: "")
@@ -202,7 +203,25 @@ class MainViewModel : ViewModel() {
 
 
     // shops
-    fun addMagazine(magazine: Shop) {
+    private val _addMagazine = MutableLiveData<Resource<Shop>>()
+    val addMagazine: LiveData<Resource<Shop>> = _addMagazine
+
+    fun addMagazine(magazine: Shop, imageBytes: ByteArray? = null) {
+        _addMagazine.value = Resource(
+            status = Status.LOADING,
+            message = "Kuting..."
+        )
+        if (imageBytes != null) {
+            uploadImage(imageBytes, magazine.id) {
+                magazine.photo = it
+                updateShop(magazine)
+            }
+        } else {
+            updateShop(magazine)
+        }
+    }
+
+    private fun updateShop(magazine: Shop) {
         DB_FIRESTORE.collection(SHOPS).document(magazine.id)
             .set(magazine)
             .addOnSuccessListener {
@@ -238,54 +257,66 @@ class MainViewModel : ViewModel() {
                 for (dc in snapshots!!.documentChanges) {
                     when (dc.type) {
                         DocumentChange.Type.ADDED -> {
-                            val shopRemote = dc.document.toObject(Shop::class.java)
-                            Log.d(TAG, "shopRemote :$shopRemote")
-                            DB_LOCAL.daoShop().addShop(shopRemote)
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(object : DisposableSingleObserver<Long>() {
-                                    override fun onSuccess(t: Long) {
-                                        Log.d(TAG, "shopRemote ADDED :$shopRemote")
-                                    }
+                            try {
+                                val shopRemote = dc.document.toObject(Shop::class.java)
+                                Log.d(TAG, "shopRemote :$shopRemote")
+                                DB_LOCAL.daoShop().addShop(shopRemote)
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .subscribe(object : DisposableSingleObserver<Long>() {
+                                        override fun onSuccess(t: Long) {
+                                            Log.d(TAG, "shopRemote ADDED :$shopRemote")
+                                        }
 
-                                    override fun onError(e: Throwable) {
-                                        e.printStackTrace()
-                                    }
-                                })
+                                        override fun onError(e: Throwable) {
+                                            e.printStackTrace()
+                                        }
+                                    })
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                            }
+
                         }
                         DocumentChange.Type.MODIFIED -> {
-                            val shopRemote = dc.document.toObject(Shop::class.java)
-                            DB_LOCAL.daoShop().updateShop(shopRemote)
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(object : DisposableSingleObserver<Int>() {
-                                    override fun onSuccess(t: Int) {}
-                                    override fun onError(e: Throwable) {
-                                        e.printStackTrace()
-                                    }
-                                })
-                            Log.d(
-                                TAG,
-                                "shopRemote Type.MODIFIED :$shopRemote"
-                            )
+                            try {
+                                val shopRemote = dc.document.toObject(Shop::class.java)
+                                DB_LOCAL.daoShop().updateShop(shopRemote)
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .subscribe(object : DisposableSingleObserver<Int>() {
+                                        override fun onSuccess(t: Int) {}
+                                        override fun onError(e: Throwable) {
+                                            e.printStackTrace()
+                                        }
+                                    })
+                                Log.d(
+                                    TAG,
+                                    "shopRemote Type.MODIFIED :$shopRemote"
+                                )
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                            }
                         }
                         DocumentChange.Type.REMOVED -> {
-                            val shopRemote = dc.document.toObject(Shop::class.java)
-                            DB_LOCAL.daoShop().deleteShop(shopRemote)
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(object : DisposableSingleObserver<Int>() {
-                                    override fun onSuccess(t: Int) {}
-                                    override fun onError(e: Throwable) {
-                                        e.printStackTrace()
-                                    }
-                                })
+                            try {
+                                val shopRemote = dc.document.toObject(Shop::class.java)
+                                DB_LOCAL.daoShop().deleteShop(shopRemote)
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .subscribe(object : DisposableSingleObserver<Int>() {
+                                        override fun onSuccess(t: Int) {}
+                                        override fun onError(e: Throwable) {
+                                            e.printStackTrace()
+                                        }
+                                    })
 
-                            Log.d(
-                                TAG,
-                                "shopRemote Type.REMOVED :$shopRemote"
-                            )
-
+                                Log.d(
+                                    TAG,
+                                    "shopRemote Type.REMOVED :$shopRemote"
+                                )
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                            }
                         }
                     }
                 }
@@ -293,6 +324,22 @@ class MainViewModel : ViewModel() {
             }
     }
 
+    // images upload and download
+
+    private fun uploadImage(fileBytes: ByteArray, id: String, function: (String) -> Unit) {
+        DB_FIREBASE_STORAGE.getReference("$IMAGES/" + id)
+            .putBytes(fileBytes)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    DB_FIREBASE_STORAGE.getReference("$IMAGES/" + id).downloadUrl.addOnSuccessListener {
+                        Log.d(TAG, "link to ImageShop : $it")
+                        function(it.toString())
+                    }
+                } else {
+                    function("")
+                }
+            }
+    }
 }
 
 

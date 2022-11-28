@@ -15,5 +15,5 @@ dependencyResolutionManagement {
         
     }
 }
-rootProject.name = "Telegram"
+rootProject.name = "Shop Manager"
 include ':app'

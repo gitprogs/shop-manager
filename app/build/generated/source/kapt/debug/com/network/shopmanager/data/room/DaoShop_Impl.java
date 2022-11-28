@@ -202,7 +202,7 @@ public final class DaoShop_Impl implements DaoShop {
 
   @Override
   public Flowable<List<Shop>> getShops() {
-    final String _sql = "select * from shops";
+    final String _sql = "select * from shops order by date desc";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     return RxRoom.createFlowable(__db, false, new String[]{"shops"}, new Callable<List<Shop>>() {
       @Override
