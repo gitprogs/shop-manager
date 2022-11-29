@@ -6,6 +6,8 @@
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/drawable/ic_arrow_back.xml" value="0.149" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/drawable/ic_bank.xml" value="0.149" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/drawable/ic_camera.xml" value="0.149" />
+        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/drawable/ic_delete.xml" value="0.14" />
+        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/drawable/ic_edit_green.xml" value="0.14" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/drawable/ic_gallery.xml" value="0.149" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/drawable/ic_home.xml" value="0.149" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/drawable/ic_info.xml" value="0.149" />
@@ -36,9 +38,10 @@
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/layout/fragment_sign_up.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/layout/fragment_token.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/layout/item_magazine.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/layout/item_shop.xml" value="0.264" />
+        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/layout/item_shop.xml" value="0.4" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/layout/nav_counter.xml" value="1.2" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/layout/nav_header_main.xml" value="0.264" />
+        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/layout/popup_edit_delete.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/layout/progress_bar.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/layout/toolbar_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/ShopManager/app/src/main/res/menu/main_drawer.xml" value="0.25416666666666665" />

@@ -6,6 +6,7 @@ import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
 import androidx.room.RxRoom;
+import androidx.room.SharedSQLiteStatement;
 import androidx.room.util.CursorUtil;
 import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
@@ -33,6 +34,8 @@ public final class DaoShop_Impl implements DaoShop {
   private final EntityDeletionOrUpdateAdapter<Shop> __deletionAdapterOfShop;
 
   private final EntityDeletionOrUpdateAdapter<Shop> __updateAdapterOfShop;
+
+  private final SharedSQLiteStatement __preparedStmtOfDeleteShopById;
 
   public DaoShop_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -128,6 +131,13 @@ public final class DaoShop_Impl implements DaoShop {
         }
       }
     };
+    this.__preparedStmtOfDeleteShopById = new SharedSQLiteStatement(__db) {
+      @Override
+      public String createQuery() {
+        final String _query = "DELETE FROM shops WHERE id = ?";
+        return _query;
+      }
+    };
   }
 
   @Override
@@ -201,8 +211,33 @@ public final class DaoShop_Impl implements DaoShop {
   }
 
   @Override
+  public Single<Integer> deleteShopById(final String id) {
+    return Single.fromCallable(new Callable<Integer>() {
+      @Override
+      public Integer call() throws Exception {
+        final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteShopById.acquire();
+        int _argIndex = 1;
+        if (id == null) {
+          _stmt.bindNull(_argIndex);
+        } else {
+          _stmt.bindString(_argIndex, id);
+        }
+        __db.beginTransaction();
+        try {
+          final java.lang.Integer _result = _stmt.executeUpdateDelete();
+          __db.setTransactionSuccessful();
+          return _result;
+        } finally {
+          __db.endTransaction();
+          __preparedStmtOfDeleteShopById.release(_stmt);
+        }
+      }
+    });
+  }
+
+  @Override
   public Flowable<List<Shop>> getShops() {
-    final String _sql = "select * from shops order by date desc";
+    final String _sql = "select * from shops";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     return RxRoom.createFlowable(__db, false, new String[]{"shops"}, new Callable<List<Shop>>() {
       @Override

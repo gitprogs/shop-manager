@@ -49,18 +49,17 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         APP = this
         DB_LOCAL = MyRoom.getInstance(applicationContext)
         vm.getRealTimeUpdates()
-
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         drawer = binding.drawerLayout
         binding.navView.setNavigationItemSelectedListener(this)
+    }
 
+    override fun onStart() {
+        super.onStart()
         initHeader()
         initMenuCounters()
         setClickListeners()
-
-
     }
-
     @SuppressLint("SetTextI18n")
     private fun initHeader() {
         val header = binding.navView.getHeaderView(0)

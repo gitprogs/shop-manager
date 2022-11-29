@@ -5,7 +5,6 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
-import android.util.Log
 import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
@@ -22,8 +21,8 @@ import java.io.FileOutputStream
 
 @DelicateCoroutinesApi
 open class FragmentBase : Fragment() {
-    var ivShop: ImageView? = null
-    var uri: Uri? = null
+    private var ivShop: ImageView? = null
+    private var uri: Uri? = null
     private var absPath: String = "" // fire Storage ga shu pathdagi file yuklanadi
     var imageBytes: ByteArray? = null
 

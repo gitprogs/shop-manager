@@ -1,7 +1,9 @@
 package com.network.shopmanager.ui
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
@@ -13,17 +15,18 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.gson.Gson
-import com.network.shopmanager.data.models.Geo
-import com.network.shopmanager.data.models.Seller
-import com.network.shopmanager.data.models.Shop
-import com.network.shopmanager.data.models.Token
+import com.network.shopmanager.data.models.*
+import com.network.shopmanager.utils.Constants.DELETED_IDS
 import com.network.shopmanager.utils.Constants.IMAGES
+import com.network.shopmanager.utils.Constants.KEY_DELETED_IDS
 import com.network.shopmanager.utils.Constants.SELLERS
 import com.network.shopmanager.utils.Constants.SHOPS
 import com.network.shopmanager.utils.Constants.TOKEN
 import com.network.shopmanager.utils.Objects
+import com.network.shopmanager.utils.Objects.APP
 import com.network.shopmanager.utils.Objects.AUTH
 import com.network.shopmanager.utils.Objects.DB_LOCAL
+import com.network.shopmanager.utils.Objects.PREF
 import com.network.shopmanager.utils.Resource
 import com.network.shopmanager.utils.Status
 import com.network.shopmanager.utils.waitMoment
@@ -31,10 +34,15 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.io.File
 import java.util.*
 
 const val TAG = "MainViewModel"
 
+@DelicateCoroutinesApi
 class MainViewModel : ViewModel() {
     private val gson = Gson()
     private val DB_FIRESTORE = Firebase.firestore
@@ -42,6 +50,7 @@ class MainViewModel : ViewModel() {
 
     fun getRealTimeUpdates() {
         getRealTimeUpdateShops()
+        getRealTimeUpdateDeletedIds()
         // boshqa observablelar va listenerlar
     }
 
@@ -178,7 +187,7 @@ class MainViewModel : ViewModel() {
         _resultLocation.value = Resource(status = Status.LOADING)
         val mFusedLocationClient = LocationServices.getFusedLocationProviderClient(Objects.APP)
         if (ContextCompat.checkSelfPermission(
-                Objects.APP,
+                APP,
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED
         ) {
@@ -207,6 +216,19 @@ class MainViewModel : ViewModel() {
     val addMagazine: LiveData<Resource<Shop>> = _addMagazine
 
     fun addMagazine(magazine: Shop, imageBytes: ByteArray? = null) {
+        DB_LOCAL.daoShop().addShop(magazine)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : DisposableSingleObserver<Long>() {
+                override fun onSuccess(t: Long) {
+                    Log.d(TAG, "magazine ADDED :$magazine")
+                }
+
+                override fun onError(e: Throwable) {
+                    e.printStackTrace()
+                }
+            })
+
         _addMagazine.value = Resource(
             status = Status.LOADING,
             message = "Kuting..."
@@ -221,9 +243,10 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    private fun updateShop(magazine: Shop) {
-        DB_FIRESTORE.collection(SHOPS).document(magazine.id)
-            .set(magazine)
+    private fun updateShop(shop: Shop) {
+
+        DB_FIRESTORE.collection(SHOPS).document(shop.id)
+            .set(shop)
             .addOnSuccessListener {
                 _addMagazine.value = Resource(
                     status = Status.SUCCESS,
@@ -236,6 +259,15 @@ class MainViewModel : ViewModel() {
                     message = "Xatolik"
                 )
                 it.printStackTrace()
+            }
+    }
+
+    fun deleteShop(shop: Shop) {
+        DB_FIRESTORE.collection(SHOPS)
+            .document(shop.id)
+            .delete().addOnSuccessListener {
+                updateDeletedIds(shop.id)
+                deleteImage(shop.id)
             }
     }
 
@@ -259,6 +291,9 @@ class MainViewModel : ViewModel() {
                         DocumentChange.Type.ADDED -> {
                             try {
                                 val shopRemote = dc.document.toObject(Shop::class.java)
+                                if (shopRemote.photo.isNotEmpty()) {
+                                    downloadImage(shopRemote.id)
+                                }
                                 Log.d(TAG, "shopRemote :$shopRemote")
                                 DB_LOCAL.daoShop().addShop(shopRemote)
                                     .subscribeOn(Schedulers.io())
@@ -280,6 +315,9 @@ class MainViewModel : ViewModel() {
                         DocumentChange.Type.MODIFIED -> {
                             try {
                                 val shopRemote = dc.document.toObject(Shop::class.java)
+                                if (shopRemote.photo.isNotEmpty()) {
+                                    downloadImage(shopRemote.id)
+                                }
                                 DB_LOCAL.daoShop().updateShop(shopRemote)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
@@ -324,7 +362,7 @@ class MainViewModel : ViewModel() {
             }
     }
 
-    // images upload and download
+    // images upload ,download and delete
 
     private fun uploadImage(fileBytes: ByteArray, id: String, function: (String) -> Unit) {
         DB_FIREBASE_STORAGE.getReference("$IMAGES/" + id)
@@ -338,6 +376,91 @@ class MainViewModel : ViewModel() {
                 } else {
                     function("")
                 }
+            }
+    }
+
+    fun downloadImage(id: String) {
+        try {
+            val file: File? = APP.getFileStreamPath(id)
+            file?.delete()
+        } catch (e: Exception) {
+        }
+        GlobalScope.launch(Dispatchers.IO) {
+            val ref = DB_FIREBASE_STORAGE.getReference("/$IMAGES/${id}")
+            ref.getFile(Uri.parse(id))
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+
+                    } else {
+
+                    }
+                }
+                .addOnProgressListener { taskSnapshot ->
+
+                    //updateLocalBook(book)
+                }
+        }
+
+    }
+
+    private fun deleteImage(id: String) {
+        try {
+            DB_FIREBASE_STORAGE.getReference("$IMAGES/" + id).delete()
+        } catch (e: Exception) {
+        }
+    }
+
+
+    // deleted Ids
+
+    private fun updateDeletedIds(id: String) {
+        DB_FIRESTORE.collection(DELETED_IDS).document(id)
+            .set(DeletedId(id, System.currentTimeMillis()))
+    }
+
+    @SuppressLint("HardwareIds")
+    private fun getRealTimeUpdateDeletedIds() {
+        val lastUpdateTime = PREF.getLong(KEY_DELETED_IDS) ?: 0
+        DB_FIRESTORE.collection(DELETED_IDS)
+            .whereGreaterThanOrEqualTo("date", lastUpdateTime)
+            //.whereIn("groupId", groupIds)
+            .addSnapshotListener { snapshots, e ->
+                if (e != null) {
+                    return@addSnapshotListener
+                }
+                for (dc in snapshots!!.documentChanges) {
+                    when (dc.type) {
+                        DocumentChange.Type.ADDED -> {
+                            try {
+                                val deletedId = dc.document.toObject(DeletedId::class.java)
+                                Log.d(TAG, "deletedId :${deletedId.id}")
+                                DB_LOCAL.daoShop().deleteShopById(deletedId.id)
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .subscribe(object : DisposableSingleObserver<Int>() {
+                                        override fun onSuccess(t: Int) {
+                                            Log.d(TAG, "deletedId Deteled :$deletedId")
+                                            try {
+                                                val file: File? =
+                                                    APP.getFileStreamPath(deletedId.id)
+                                                file?.delete()
+                                            } catch (e: Exception) {
+                                            }
+                                        }
+
+                                        override fun onError(e: Throwable) {
+                                            e.printStackTrace()
+                                        }
+                                    })
+                                PREF.setLong(KEY_DELETED_IDS, System.currentTimeMillis())
+
+                            } catch (e: Exception) {
+                            }
+                        }
+                        else -> {}
+                    }
+                }
+                Log.d(TAG, "getRealTimeUpdateDeletedIds")
             }
     }
 }

@@ -4,13 +4,11 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,15 +18,17 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.network.shopmanager.R
 import com.network.shopmanager.data.models.Shop
 import com.network.shopmanager.databinding.DialogAddEditShopBinding
 import com.network.shopmanager.databinding.DialogTakePhotoBinding
 import com.network.shopmanager.databinding.FragmentShopsBinding
 import com.network.shopmanager.ui.adapters.AdapterShops
+import com.network.shopmanager.utils.*
 import com.network.shopmanager.utils.Objects.APP
 import com.network.shopmanager.utils.Objects.DB_LOCAL
-import com.network.shopmanager.utils.Status
-import com.network.shopmanager.utils.toToast
+import com.network.shopmanager.utils.Objects.NETWORK
+import com.squareup.picasso.Picasso
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
@@ -66,9 +66,21 @@ class FragmentShops : FragmentBase() {
         }
         adapter = AdapterShops(object : AdapterShops.ShopClickListener {
             override fun onClick(shop: Shop, position: Int, v: View) {
-
+                PopupEditDelete().show(v) {
+                    when (it) {
+                        R.id.tv_edit -> showDialog(shop)
+                        R.id.tv_delete -> deleteShop(shop)
+                    }
+                }
             }
         })
+        binding.rvShops.adapter = adapter
+        binding.rvShops.addItemDecoration(
+            DividerItemDecoration(
+                APP,
+                LinearLayoutManager.VERTICAL
+            )
+        )
 
         DB_LOCAL.daoShop().getShops()
             .subscribeOn(Schedulers.io())
@@ -83,58 +95,85 @@ class FragmentShops : FragmentBase() {
                 }),
                 { }
             )
-        binding.rvShops.adapter = adapter
-        binding.rvShops.addItemDecoration(
-            DividerItemDecoration(
-                APP,
-                LinearLayoutManager.VERTICAL
-            )
-        )
+
+    }
+
+    private fun deleteShop(shop: Shop) {
+        ShowAlertDialog(
+            title = "Diqqat !",
+            message = "${shop.address} manzilidagi ${shop.name} do'konni o'chirishga ishonchingiz komilmi ?"
+        ) {
+            if (it) {
+                if (NETWORK.isNetworkConnected()) {
+                    APP.vm.deleteShop(shop)
+                } else {
+                    noInternetToast()
+                }
+            }
+        }
     }
 
     @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.N)
-    private fun showDialog() {
+    private fun showDialog(editShop: Shop? = null) {
+        viewAddEditShop = DialogAddEditShopBinding.inflate(layoutInflater)
+        val dialog = AlertDialog.Builder(requireContext()).setView(viewAddEditShop?.root)
+        dialog.setCancelable(true)
+        val alert = dialog.create()
+        alert.show()
 
-        val locationManager = APP.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            buildAlertMessageNoGps()
-        } else {
-            viewAddEditShop = DialogAddEditShopBinding.inflate(layoutInflater)
-            val dialog = AlertDialog.Builder(requireContext()).setView(viewAddEditShop?.root)
-            dialog.setCancelable(true)
-            val alert = dialog.create()
-            alert.show()
-
-            viewAddEditShop?.ivShop?.setOnClickListener {
-                viewAddImage = DialogTakePhotoBinding.inflate(layoutInflater)
-                val dialogTakeImage =
-                    AlertDialog.Builder(requireContext()).setView(viewAddImage?.root)
-                dialogTakeImage.setCancelable(true)
-                val alertImage = dialogTakeImage.create()
-                alertImage.show()
-                alertImage.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                viewAddImage?.tvCancel?.setOnClickListener {
-                    alertImage.dismiss()
-                }
-                viewAddImage?.camera?.setOnClickListener {
-                    alertImage.dismiss()
-                    APP.requestPermissions(Manifest.permission.CAMERA) {
-                        loadImageFromCamera(viewAddEditShop?.ivShop)
-                    }
-                }
-                viewAddImage?.gallery?.setOnClickListener {
-                    alertImage.dismiss()
-                    APP.requestPermissions(
-                        Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE
-                    ) {
-                        loadImageFromGallery(viewAddEditShop?.ivShop)
-                    }
-                }
-
+        if (editShop != null) {
+            viewAddEditShop?.title?.text = "O'zgartirish"
+            viewAddEditShop?.etShopName?.setText(editShop.name)
+            viewAddEditShop?.etShopAddress?.setText(editShop.address)
+            try {
+                Picasso.get().load(editShop.photo)
+                    .centerCrop()
+                    .fit()
+                    .placeholder(R.drawable.shop)
+                    .into(viewAddEditShop?.ivShop)
+            } catch (e: Exception) {
             }
-            viewAddEditShop?.etGeo?.setOnClickListener {
+            try {
+                val geoArray = editShop.geo.split("#")
+                viewAddEditShop?.etGeo?.text = "${geoArray[0]}\n${geoArray[1]}"
+            } catch (e: Exception) {
+            }
+        }
+
+        viewAddEditShop?.ivShop?.setOnClickListener {
+            viewAddImage = DialogTakePhotoBinding.inflate(layoutInflater)
+            val dialogTakeImage =
+                AlertDialog.Builder(requireContext()).setView(viewAddImage?.root)
+            dialogTakeImage.setCancelable(true)
+            val alertImage = dialogTakeImage.create()
+            alertImage.show()
+            alertImage.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            viewAddImage?.tvCancel?.setOnClickListener {
+                alertImage.dismiss()
+            }
+            viewAddImage?.camera?.setOnClickListener {
+                alertImage.dismiss()
+                APP.requestPermissions(Manifest.permission.CAMERA) {
+                    loadImageFromCamera(viewAddEditShop?.ivShop)
+                }
+            }
+            viewAddImage?.gallery?.setOnClickListener {
+                alertImage.dismiss()
+                APP.requestPermissions(
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) {
+                    loadImageFromGallery(viewAddEditShop?.ivShop)
+                }
+            }
+
+        }
+        viewAddEditShop?.etGeo?.setOnClickListener {
+            val locationManager = APP.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                Gps().openGpsSettings()
+            } else {
                 APP.requestPermissions(
                     Manifest.permission.ACCESS_COARSE_LOCATION,
                     Manifest.permission.ACCESS_FINE_LOCATION
@@ -148,14 +187,14 @@ class FragmentShops : FragmentBase() {
                     }
                 }
             }
-            viewAddEditShop?.btnConfirm?.setOnClickListener {
-                saveShop()
-                alert.dismiss()
-            }
+        }
+        viewAddEditShop?.btnConfirm?.setOnClickListener {
+            saveShop(editShop)
+            alert.dismiss()
         }
     }
 
-    private fun saveShop() {
+    private fun saveShop(editShop: Shop? = null) {
         val shopName = viewAddEditShop?.etShopName?.text?.toString()?.trim()
         val shopAddress = viewAddEditShop?.etShopAddress?.text?.toString()?.trim()
         if (shopName == null || shopName.isEmpty()) {
@@ -163,46 +202,31 @@ class FragmentShops : FragmentBase() {
         } else if (shopAddress == null || shopAddress.isEmpty()) {
             "Do'kon manzili kiritilmadi".toToast()
         } else {
-            val shop = Shop(
-                id = UUID.randomUUID().toString(),
-                name = shopName,
-                address = shopAddress,
-                geo = this.geo,
-                date = System.currentTimeMillis()
+            val shop = if (editShop != null) editShop else Shop(
+                id = UUID.randomUUID().toString()
             )
-            APP.vm.addMagazine(shop, imageBytes)
-            APP.vm.addMagazine.observe(viewLifecycleOwner) {
-                if (it.status == Status.SUCCESS) {
-                    it.message.toToast()
-                    binding.rvShops.scrollToPosition(adapter?.itemCount ?: 0)
+            shop.name = shopName
+            shop.address = shopAddress
+            shop.geo = this.geo
+            shop.date = System.currentTimeMillis()
+
+            if (NETWORK.isNetworkConnected()) {
+                APP.vm.addMagazine(shop, imageBytes)
+                imageBytes = null
+                APP.vm.addMagazine.observe(viewLifecycleOwner) {
+                    if (it.status == Status.SUCCESS) {
+                        it.message.toToast()
+                        binding.rvShops.scrollToPosition(adapter?.itemCount ?: 0)
+                    }
                 }
+            } else {
+                noInternetToast()
             }
         }
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
-    private fun buildAlertMessageNoGps() {
-        val builder = AlertDialog.Builder(APP)
-        builder.setMessage("GPS yoqilmagan. Yoqilsinmi?")
-            .setCancelable(false)
-            .setPositiveButton("Ha") { dialog, id ->
-                startActivityForResult(
-                    Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS), 11
-                )
-            }
-            .setNegativeButton("Yo'q") { dialog, id ->
-                dialog.cancel()
-            }
-        val alert: AlertDialog = builder.create()
-        alert.show()
-
-
-    }
-
-
 }

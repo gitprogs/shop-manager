@@ -1,5 +1,6 @@
 package com.network.shopmanager.ui.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,25 +10,41 @@ import androidx.recyclerview.widget.RecyclerView
 import com.network.shopmanager.R
 import com.network.shopmanager.data.models.Shop
 import com.network.shopmanager.databinding.ItemShopBinding
+import com.network.shopmanager.utils.Objects.APP
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.DelicateCoroutinesApi
+import java.io.File
 
+@DelicateCoroutinesApi
 class AdapterShops(val listener: ShopClickListener) :
     ListAdapter<Shop, AdapterShops.Vh>(ShopDiffUtil()) {
+
     inner class Vh(val v: ItemShopBinding) : RecyclerView.ViewHolder(v.root) {
         fun onBind(shop: Shop, position: Int) {
             //  v.ivShop.setImageResource(shop.photo)
+            val file: File? = APP.getFileStreamPath(shop.id)
             try {
-                Picasso.get()
-                    .load(shop.photo)
-                    .placeholder(R.drawable.shop)
-                    .centerCrop()
-                    .fit()
-                    .into(v.ivShop)
+                if (file != null) {
+                    Picasso.get()
+                        .load(file)
+                        .placeholder(R.drawable.shop)
+                        .centerCrop()
+                        .fit()
+                        .into(v.ivShop)
+                } else {
+                    Picasso.get()
+                        .load(shop.photo)
+                        .placeholder(R.drawable.shop)
+                        .centerCrop()
+                        .fit()
+                        .into(v.ivShop)
+                }
 
-            }catch (e:Exception){
+            } catch (e: Exception) {
                 e.printStackTrace()
             }
             v.tvShopName.text = shop.name
+            v.tvShopAddress.text = shop.address
             v.ivMore.setOnClickListener {
                 listener.onClick(shop, position, it)
             }

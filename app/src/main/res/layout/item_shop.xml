@@ -7,8 +7,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_mage"
-        android:layout_width="@dimen/dp60"
-        android:layout_height="@dimen/dp60"
+        android:layout_width="@dimen/dp70"
+        android:layout_height="@dimen/dp70"
         android:layout_marginHorizontal="@dimen/dp10"
         android:layout_marginVertical="@dimen/dp5"
         app:cardCornerRadius="@dimen/dp15">
@@ -20,18 +20,31 @@
             android:src="@drawable/shop" />
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/tv_shop_name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toStartOf="@id/iv_more"
         android:layout_toEndOf="@id/card_mage"
-        android:gravity="center_vertical"
-        android:maxLines="2"
-        android:text="1-do'kon (Optom 22-05)"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/font20" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_shop_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="1-do'kon (Optom 22-05)"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font20" />
+
+        <TextView
+            android:id="@+id/tv_shop_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="manzil" />
+    </LinearLayout>
+
 
     <ImageView
         android:id="@+id/iv_more"
@@ -39,11 +52,11 @@
         android:layout_height="@dimen/dp60"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         android:paddingHorizontal="@dimen/dp10"
         android:src="@drawable/ic_more"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:tint="@android:color/background_dark"
-        android:focusable="true" />
+        app:tint="@android:color/background_dark" />
 
 </RelativeLayout>
