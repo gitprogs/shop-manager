@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="black">#FF000000</color>
+    <color name="blue">#166BFA</color>
+    <color name="blue_dark">#0C5BBA</color>
+    <color name="blue_light">#71A5FC</color>
+    <color name="green">#39CE40</color>
+    <color name="green_dark">#12B31A</color>
+    <color name="grey">#8C8C8C</color>
+    <color name="grey_dark">#716D6D</color>
+    <color name="grey_light">#BDBDBD</color>
+    <color name="grey_light_night">#25303F</color>
+    <color name="grey_lightest">#F6F5F5</color>
+    <color name="grey_transparent">#80777777</color>
+    <color name="orange">#FF7700</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#336DFF</color>
+    <color name="purple_700">#0044EF</color>
+    <color name="red">#FF0000</color>
+    <color name="teal_200">#0DA315</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="transparent">#00FFFEFE</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_back">#F7F7F7</color>
+    <color name="white_transparent">#DAFFFEFE</color>
+    <color name="yellow">#F4FF81</color>
+    <dimen name="dp1">1dp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp15">15dp</dimen>
+    <dimen name="dp2">2dp</dimen>
+    <dimen name="dp20">20dp</dimen>
+    <dimen name="dp24">24dp</dimen>
+    <dimen name="dp25">25dp</dimen>
+    <dimen name="dp3">3dp</dimen>
+    <dimen name="dp30">30dp</dimen>
+    <dimen name="dp4">4dp</dimen>
+    <dimen name="dp40">40dp</dimen>
+    <dimen name="dp5">5dp</dimen>
+    <dimen name="dp50">50dp</dimen>
+    <dimen name="dp60">60dp</dimen>
+    <dimen name="dp7">7dp</dimen>
+    <dimen name="dp70">80dp</dimen>
+    <dimen name="font10">10sp</dimen>
+    <dimen name="font12">12sp</dimen>
+    <dimen name="font16">16sp</dimen>
+    <dimen name="font18">18sp</dimen>
+    <dimen name="font20">20sp</dimen>
+    <dimen name="font22">22sp</dimen>
+    <dimen name="font24">24sp</dimen>
+    <dimen name="font30">30sp</dimen>
+    <dimen name="font32">32sp</dimen>
+    <string name="administraciya">Administraciya</string>
+    <string name="app_name">Shop Manager</string>
+    <string name="bank">Bank</string>
+    <string name="default_web_client_id" translatable="false">322378227751-bnmnev5octmk58i0329e2hun99kdd45m.apps.googleusercontent.com</string>
+    <string name="exit">Chiqish</string>
+    <string name="familiya">Familiya (ixtiyoriy)</string>
+    <string name="floatingactionbutton">FloatingActionButton</string>
+    <string name="gcm_defaultSenderId" translatable="false">322378227751</string>
+    <string name="google_api_key" translatable="false">AIzaSyA0Dtccx6RvpBiqHdlTY9qWvEquW7jh2Y0</string>
+    <string name="google_app_id" translatable="false">1:322378227751:android:46ec2a7de97e977fd9ee02</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyA0Dtccx6RvpBiqHdlTY9qWvEquW7jh2Y0</string>
+    <string name="google_storage_bucket" translatable="false">shop-manager-dc2c5.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Bosh sahifa</string>
+    <string name="info">Info</string>
+    <string name="ism">Ism</string>
+    <string name="kirish">Kirish</string>
+    <string name="login">Login</string>
+    <string name="manzil">Manzil</string>
+    <string name="parolni_takrorlang">Parolni takrorlang</string>
+    <string name="password">Parol</string>
+    <string name="project_id" translatable="false">shop-manager-dc2c5</string>
+    <string name="registration">Ro\'yxatdan o\'tish</string>
+    <string name="settings">Sozlamalar</string>
+    <string name="suppliers">Tovar beruvchilar</string>
+    <string name="tasdiqlash">Tasdiqlash</string>
+    <string name="taxis">Taksilar</string>
+    <string name="tel1">1-tel raqam</string>
+    <string name="tel2">2-tel raqam (ixtiyoriy)</string>
+    <string name="token">Token</string>
+    <style name="Theme.ShopManager" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        
+    </style>
+    <style name="Theme.ShopManager.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="text_info_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/karla_regular</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/dp30</item>
+    </style>
+</resources>

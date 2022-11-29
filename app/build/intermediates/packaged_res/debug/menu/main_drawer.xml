@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/fragment_home"
+            android:icon="@drawable/ic_home"
+            app:actionLayout="@layout/nav_counter"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/fragment_suppliers"
+            android:icon="@drawable/ic_suppliers"
+            app:actionLayout="@layout/nav_counter"
+            android:title="@string/suppliers" />
+        <item
+            android:id="@+id/fragment_taxis"
+            android:icon="@drawable/ic_taxi"
+            app:actionLayout="@layout/nav_counter"
+            android:title="@string/taxis" />
+
+        <item
+            android:id="@+id/fragment_info"
+            android:icon="@drawable/ic_info"
+            app:actionLayout="@layout/nav_counter"
+            android:title="@string/info" />
+        <item
+            android:id="@+id/fragment_bank"
+            android:icon="@drawable/ic_bank"
+            app:actionLayout="@layout/nav_counter"
+            android:title="@string/bank" />
+        <item
+            android:id="@+id/fragment_admin"
+            android:icon="@drawable/ic_star"
+            app:actionLayout="@layout/nav_counter"
+            android:title="@string/administraciya" />
+
+        <item
+            android:id="@+id/fragment_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings" />
+
+        <item
+            android:id="@+id/sign_out"
+            android:icon="@drawable/ic_out"
+            android:title="@string/exit" />
+    </group>
+</menu>

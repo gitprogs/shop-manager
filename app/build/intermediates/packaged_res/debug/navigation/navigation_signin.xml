@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_signin"
+    app:startDestination="@id/fragmentSignIn">
+
+    <fragment
+        android:id="@+id/fragmentSignIn"
+        android:name="com.network.shopmanager.ui.fragments.FragmentSignIn"
+        android:label="FragmentSignIn" />
+    <fragment
+        android:id="@+id/fragmentToken"
+        android:name="com.network.shopmanager.ui.fragments.FragmentToken"
+        android:label="FragmentToken" />
+    <fragment
+        android:id="@+id/fragmentSignUp"
+        android:name="com.network.shopmanager.ui.fragments.FragmentSignUp"
+        android:label="FragmentSignUp" />
+</navigation>

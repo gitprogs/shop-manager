@@ -1,0 +1,19 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/dp1"
+        android:paddingHorizontal="@dimen/dp4"
+        android:minWidth="@dimen/dp30"
+        android:layout_gravity="center"
+        android:background="@drawable/navdrawer_counterbackground"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="@dimen/font10"
+        tools:text="99+" />
+</FrameLayout>

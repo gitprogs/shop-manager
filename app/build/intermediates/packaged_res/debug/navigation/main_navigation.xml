@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/fragment_home">
+
+    <fragment
+        android:id="@+id/fragment_admin"
+        android:name="com.network.shopmanager.ui.fragments.FragmentAdmin"
+        android:label="FragmentAdmin" >
+        <action
+            android:id="@+id/action_fragment_admin_to_fragmentShops"
+            app:destination="@id/fragmentShops" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="com.network.shopmanager.ui.fragments.FragmentHome"
+        android:label="FragmentHome" />
+    <fragment
+        android:id="@+id/fragmentShops"
+        android:name="com.network.shopmanager.ui.fragments.FragmentShops"
+        android:label="FragmentShops" />
+</navigation>

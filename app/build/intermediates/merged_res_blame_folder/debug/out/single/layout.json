@@ -1,0 +1,78 @@
+[
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\item_shop.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\item_shop.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\progress_bar.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\progress_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\dialog_take_photo.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\dialog_take_photo.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\fragment_sign_up.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\fragment_sign_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\activity_main_drawer.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\activity_main_drawer.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\fragment_sign_in.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\fragment_sign_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\toolbar_layout.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\toolbar_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\activity_sign_in.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\activity_sign_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\fragment_shops.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\fragment_shops.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\fragment_admin.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\fragment_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\fragment_token.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\fragment_token.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\nav_header_main.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\nav_header_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\dialog_add_edit_shop.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\dialog_add_edit_shop.xml"
+    },
+    {
+        "merged": "com.network.shopmanager.app-mergeDebugResources-46:/layout/dialog_add_edit_shop.xml",
+        "source": "com.network.shopmanager.app-main-49:/layout/dialog_add_edit_shop.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\nav_counter.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\nav_counter.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\item_magazine.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\item_magazine.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-mergeDebugResources-46:\\layout\\fragment_seller.xml",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\fragment_seller.xml"
+    }
+]

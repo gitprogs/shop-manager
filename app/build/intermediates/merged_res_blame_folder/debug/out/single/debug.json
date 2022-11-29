@@ -1,0 +1,442 @@
+[
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-mdpi_ic_taxi.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-mdpi\\ic_taxi.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\font_karla_regular.ttf.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\font\\karla_regular.ttf"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_border_line.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\border_line.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xhdpi_ic_taxi.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xhdpi\\ic_taxi.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xhdpi_ic_suppliers.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xhdpi\\ic_suppliers.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_ic_moon.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\ic_moon.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xxhdpi_ic_home.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xxhdpi\\ic_home.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_fragment_admin.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\fragment_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-ldpi_ic_home.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-ldpi\\ic_home.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_ic_baseline_add_location_24.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\ic_baseline_add_location_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_fragment_sign_in.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\fragment_sign_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\font_karla_bold.ttf.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\font\\karla_bold.ttf"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-ldpi_ic_taxi.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-ldpi\\ic_taxi.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_nav_header_main.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\nav_header_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_progress_bar.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\progress_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\font_karla_extra_bold.ttf.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\font\\karla_extra_bold.ttf"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_ic_more.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\ic_more.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\navigation_main_navigation.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\navigation\\main_navigation.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_fragment_shops.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\fragment_shops.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-anydpi-v24_ic_taxi.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-anydpi-v24\\ic_taxi.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\menu_main_drawer.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\menu\\main_drawer.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xxhdpi_ic_gallery.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xxhdpi\\ic_gallery.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-anydpi-v24_ic_home.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-anydpi-v24\\ic_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_edit_text_style.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\edit_text_style.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-anydpi-v24_ic_suppliers.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-anydpi-v24\\ic_suppliers.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-hdpi_ic_bank.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-hdpi\\ic_bank.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-anydpi-v24_ic_gallery.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-anydpi-v24\\ic_gallery.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-anydpi-v24_ic_settings.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-anydpi-v24\\ic_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\font_karla_italic.ttf.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\font\\karla_italic.ttf"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xhdpi_ic_settings.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xhdpi\\ic_settings.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_activity_sign_in.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\activity_sign_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_item_shop.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\item_shop.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-anydpi-v24_ic_bank.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-anydpi-v24\\ic_bank.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xhdpi_ic_gallery.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xhdpi\\ic_gallery.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-mdpi_ic_home.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-mdpi\\ic_home.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_ic_out.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\ic_out.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_fragment_seller.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\fragment_seller.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_ic_toggle.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\ic_toggle.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_ic_camera.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\ic_camera.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_item_magazine.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\item_magazine.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-hdpi_ic_taxi.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-hdpi\\ic_taxi.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xxhdpi_ic_bank.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xxhdpi\\ic_bank.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-hdpi_ic_suppliers.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-hdpi\\ic_suppliers.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xxhdpi_ic_settings.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xxhdpi\\ic_settings.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_toolbar_layout.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\toolbar_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_button_style.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\button_style.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_nav_counter.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\nav_counter.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_ic_star.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\ic_star.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-mdpi_ic_gallery.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-mdpi\\ic_gallery.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_ic_sun.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\ic_sun.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_shop.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\shop.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_edit_shop_item_ic.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\edit_shop_item_ic.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xxxhdpi_ic_gallery.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xxxhdpi\\ic_gallery.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-hdpi_ic_settings.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-hdpi\\ic_settings.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_fragment_sign_up.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\fragment_sign_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\xml_file_paths.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\xml\\file_paths.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_ic_baseline_add_24.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\ic_baseline_add_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xhdpi_ic_bank.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xhdpi\\ic_bank.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-mdpi_ic_suppliers.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-mdpi\\ic_suppliers.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-hdpi_ic_home.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-hdpi\\ic_home.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-ldpi_ic_settings.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-ldpi\\ic_settings.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "com.network.shopmanager.app-merged_res-47:/layout_dialog_add_edit_shop.xml.flat",
+        "source": "com.network.shopmanager.app-main-49:/layout/dialog_add_edit_shop.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xxhdpi_ic_suppliers.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xxhdpi\\ic_suppliers.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-hdpi_ic_gallery.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-hdpi\\ic_gallery.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xxxhdpi_ic_settings.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xxxhdpi\\ic_settings.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-mdpi_ic_bank.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-mdpi\\ic_bank.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\menu_shop_popup_menu.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\menu\\shop_popup_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xxxhdpi_ic_suppliers.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xxxhdpi\\ic_suppliers.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_fragment_token.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\fragment_token.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-ldpi_ic_suppliers.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-ldpi\\ic_suppliers.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-mdpi_ic_settings.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-mdpi\\ic_settings.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_ic_arrow_back.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\ic_arrow_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_navdrawer_counterbackground.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\navdrawer_counterbackground.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_dialog_add_edit_shop.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\dialog_add_edit_shop.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_delete_shop_item_ic.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\delete_shop_item_ic.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_progress_bg.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\progress_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-ldpi_ic_bank.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-ldpi\\ic_bank.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xxxhdpi_ic_bank.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xxxhdpi\\ic_bank.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_dialog_take_photo.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\dialog_take_photo.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xxhdpi_ic_taxi.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xxhdpi\\ic_taxi.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\layout_activity_main_drawer.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\layout\\activity_main_drawer.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xxxhdpi_ic_home.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xxxhdpi\\ic_home.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-ldpi_ic_gallery.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-ldpi\\ic_gallery.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_ic_location.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\ic_location.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_ic_info.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\ic_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable_ic_plus.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\drawable\\ic_plus.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xhdpi_ic_home.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xhdpi\\ic_home.png"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\navigation_navigation_signin.xml.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-main-49:\\navigation\\navigation_signin.xml"
+    },
+    {
+        "merged": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-merged_res-47:\\drawable-xxxhdpi_ic_taxi.png.flat",
+        "source": "C:\\Users\\broth\\.gradle\\daemon\\7.4\\com.network.shopmanager.app-pngs-42:\\drawable-xxxhdpi\\ic_taxi.png"
+    }
+]

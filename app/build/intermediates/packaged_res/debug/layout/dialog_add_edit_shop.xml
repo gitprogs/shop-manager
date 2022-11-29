@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/dp10"
+    android:backgroundTint="@color/blue_light"
+    app:cardCornerRadius="@dimen/dp20"
+    android:layout_height="wrap_content">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginVertical="@dimen/dp15"
+                android:text="Do'kon qo'shish"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font22" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/dp10"
+                app:cardCornerRadius="@dimen/dp20"
+                app:cardElevation="@dimen/dp10">
+
+                <ImageView
+                    android:id="@+id/iv_shop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/shop" />
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp20"
+                android:layout_marginVertical="@dimen/dp5"
+                android:hint="Do'kon nomi"
+                app:boxBackgroundColor="@color/white_back"
+                app:boxBackgroundMode="outline"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_shop_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_style"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp20"
+                android:layout_marginVertical="@dimen/dp5"
+                android:hint="Do'kon manzili"
+                app:boxBackgroundColor="@color/white_back"
+                app:boxBackgroundMode="outline"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_shop_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_style"
+                    android:imeOptions="actionNext"
+
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/et_geo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp20"
+                android:layout_marginVertical="@dimen/dp10"
+                android:background="@drawable/edit_text_style"
+                android:clickable="true"
+                android:drawablePadding="@dimen/dp5"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/dp40"
+                android:paddingHorizontal="@dimen/dp15"
+                android:paddingVertical="@dimen/dp15"
+                android:text="Do'kon lokaciyasi"
+                android:textSize="@dimen/font16"
+                app:drawableEndCompat="@drawable/ic_location" />
+
+            <TextView
+                android:id="@+id/btn_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="@dimen/dp15"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/button_style"
+                android:focusable="true"
+                android:fontFamily="@font/karla_bold"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/dp24"
+                android:paddingVertical="@dimen/dp15"
+                android:text="@string/tasdiqlash"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font24"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</com.google.android.material.card.MaterialCardView>

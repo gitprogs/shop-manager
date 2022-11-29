@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "322378227751",
+    "project_id": "shop-manager-dc2c5",
+    "storage_bucket": "shop-manager-dc2c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322378227751:android:46ec2a7de97e977fd9ee02",
+        "android_client_info": {
+          "package_name": "com.network.shopmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "322378227751-b59j1hasml0ekcnfg9lkhba2ncdl1faa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.network.shopmanager",
+            "certificate_hash": "a5b3c9ca2f69b2ee35be656b48bc2538b4f214fb"
+          }
+        },
+        {
+          "client_id": "322378227751-bnmnev5octmk58i0329e2hun99kdd45m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0Dtccx6RvpBiqHdlTY9qWvEquW7jh2Y0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "322378227751-bnmnev5octmk58i0329e2hun99kdd45m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
