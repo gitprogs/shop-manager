@@ -12,7 +12,6 @@ import androidx.core.content.FileProvider
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.network.shopmanager.BuildConfig
-import com.network.shopmanager.utils.Objects
 import com.network.shopmanager.utils.Objects.APP
 import kotlinx.coroutines.DelicateCoroutinesApi
 import java.io.ByteArrayOutputStream
@@ -22,9 +21,10 @@ import java.io.FileOutputStream
 
 @DelicateCoroutinesApi
 open class FragmentBase : Fragment() {
-    var ivShop: ImageView? = null
-    var uri: Uri? = null
-    var absPath: String? = null // fire Storage ga shu pathdagi file yuklanadi
+    private var ivShop: ImageView? = null
+    private var uri: Uri? = null
+    private var absPath: String = "" // fire Storage ga shu pathdagi file yuklanadi
+    var imageBytes: ByteArray? = null
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onResume() {
@@ -32,26 +32,28 @@ open class FragmentBase : Fragment() {
 
     }
 
-    fun loadImageFromCamera(ivShop: ImageView?=null) {
-        this.ivShop=ivShop
+    fun loadImageFromCamera(ivShop: ImageView? = null) {
+        this.ivShop = ivShop
         val imageFile = createImageFile()
         uri = FileProvider.getUriForFile(APP, BuildConfig.APPLICATION_ID, imageFile)
-        image.launch(uri)
-    }
-    fun loadImageFromGallery(ivShop: ImageView?=null) {
-        this.ivShop=ivShop
-        getImageGallery.launch("image/*")
+        getImageFromCamera.launch(uri)
     }
 
-    private val getImageGallery =
+    fun loadImageFromGallery(ivShop: ImageView? = null) {
+        this.ivShop = ivShop
+        getImageFromGallery.launch("image/*")
+    }
+
+    private val getImageFromGallery =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
             uri ?: return@registerForActivityResult
             val ins = APP.contentResolver?.openInputStream(uri)
             val bitmap = BitmapFactory.decodeStream(ins)
+
             absPath = writeToFile(bitmap)
             ivShop?.setImageURI(absPath?.toUri())
         }
-    val image = registerForActivityResult(ActivityResultContracts.TakePicture()) {
+    val getImageFromCamera = registerForActivityResult(ActivityResultContracts.TakePicture()) {
         if (it) {
             val ins = APP.contentResolver?.openInputStream(uri!!)
             val bitmap = BitmapFactory.decodeStream(ins)
@@ -59,6 +61,7 @@ open class FragmentBase : Fragment() {
             ivShop?.setImageURI(absPath?.toUri())
         }
     }
+
     private fun createImageFile(): File {
         val timeStamp = System.currentTimeMillis().toString()
         val dir = APP.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
@@ -70,6 +73,8 @@ open class FragmentBase : Fragment() {
     }
 
     private fun writeToFile(scaledBitmap: Bitmap): String {
+        imageBytes = null
+        absPath = ""
         val f: File = File(APP.filesDir, "${System.currentTimeMillis()}.jpg");
         f.createNewFile();
         //Convert bitmap to byte array
@@ -78,10 +83,10 @@ open class FragmentBase : Fragment() {
         //write the bytes in file
         val fos: FileOutputStream = FileOutputStream(f)
         val biteArray = bos.toByteArray()
+        imageBytes = biteArray
         fos.write(biteArray);
         fos.flush();
         fos.close();
-
         return f.absolutePath
     }
 }

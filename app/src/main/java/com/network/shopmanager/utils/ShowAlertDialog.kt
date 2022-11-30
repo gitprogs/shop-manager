@@ -5,7 +5,7 @@ import com.network.shopmanager.utils.Objects.APP
 import kotlinx.coroutines.DelicateCoroutinesApi
 
 @DelicateCoroutinesApi
-class ShowAlertDialog(title: String, message: String, funtion: (Boolean) -> Unit) {
+class ShowAlertDialog(title: String = "Diqqat !", message: String, funtion: (Boolean) -> Unit) {
     init {
         AlertDialog.Builder(APP)
             .setCancelable(true)

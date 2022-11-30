@@ -2,24 +2,23 @@ package com.network.shopmanager.ui.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.provider.Settings
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.google.android.material.navigation.NavigationView
-
 import com.network.shopmanager.R
+import com.network.shopmanager.data.room.MyRoom
 import com.network.shopmanager.databinding.ActivityMainDrawerBinding
 import com.network.shopmanager.utils.*
 import com.network.shopmanager.utils.Objects.APP
+import com.network.shopmanager.utils.Objects.DB_LOCAL
+import com.network.shopmanager.utils.Objects.PREF
 import kotlinx.coroutines.DelicateCoroutinesApi
 
 
@@ -48,18 +47,19 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         binding = ActivityMainDrawerBinding.inflate(layoutInflater)
         setContentView(binding.root)
         APP = this
-
+        DB_LOCAL = MyRoom.getInstance(applicationContext)
+        vm.getRealTimeUpdates()
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         drawer = binding.drawerLayout
         binding.navView.setNavigationItemSelectedListener(this)
+    }
 
+    override fun onStart() {
+        super.onStart()
         initHeader()
         initMenuCounters()
         setClickListeners()
-
-
     }
-
     @SuppressLint("SetTextI18n")
     private fun initHeader() {
         val header = binding.navView.getHeaderView(0)
@@ -74,9 +74,26 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             ivNightMode?.setImageResource(R.drawable.ic_moon)
         }
         ivAvatar?.setImageResource(R.drawable.shop)
-        tvKurs?.text = "1$=11.235"
         userInfo = "Umid (1-do'kon)\n+99891123456\n+9989712300"
         tvUserHeader?.text = userInfo
+
+        CurrencyRate().getRate { rate ->
+            tvKurs?.text = "1$=$rate"
+        }
+        drawer.addDrawerListener(object : DrawerLayout.DrawerListener {
+            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}
+
+            override fun onDrawerOpened(drawerView: View) {
+                CurrencyRate().getRate { rate ->
+                    tvKurs?.text = "1$=$rate"
+                }
+            }
+
+            override fun onDrawerClosed(drawerView: View) {}
+
+            override fun onDrawerStateChanged(newState: Int) {}
+
+        })
     }
 
     private fun setClickListeners() {
@@ -85,7 +102,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
         ivNightMode?.setOnClickListener {
             val mode = !isDarkModeOn()
-            Objects.PREF.setBoolean(Constants.KEY_NIGHT_MODE, mode)
+            PREF.setBoolean(Constants.KEY_NIGHT_MODE, mode)
             setNightMode(mode)
         }
         binding.btnTokenHeader.setOnClickListener {
